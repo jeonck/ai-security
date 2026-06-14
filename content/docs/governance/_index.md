@@ -50,5 +50,5 @@ weight: 5
   {{< card link="mitre-atlas" title="MITRE ATLAS" subtitle="ATT&CK의 AI 확장, 공격자 전술 기반 위협모델링" icon="map" >}}
   {{< card link="nist-ai-rmf" title="NIST AI RMF" subtitle="Govern·Map·Measure·Manage 4단계 위험관리 구조" icon="adjustments" >}}
   {{< card link="eu-ai-act" title="EU AI Act" subtitle="위험 기반 분류와 고위험 AI 시스템 의무사항" icon="scale" >}}
-  {{< card link="ai-risk-register" title="실습: AI 위험 등록부 작성하기" subtitle="실제 AI 기능 하나를 골라 위험 등록부를 채워보는 실습" icon="pencil-alt" >}}
+  {{< card link="../../labs/lab3-ai-risk-register/" title="Lab 3: AI 위험 등록부 작성하기" subtitle="실제 AI 기능 하나를 골라 위험 등록부를 채워보는 실습" icon="pencil-alt" >}}
 {{< /cards >}}

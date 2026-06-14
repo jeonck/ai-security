@@ -162,7 +162,7 @@ flowchart LR
 
 7. **권고사항 (Recommendations)**
    - 단기(즉시 적용 가능한 패치)와 중장기(아키텍처 변경, 모니터링 체계 도입 등)로 구분
-   - [거버넌스 - AI 위험 레지스터](../../governance/ai-risk-register/)에 등록할 항목 목록 제시
+   - [AI 위험 등록부](../../../labs/lab3-ai-risk-register/)에 등록할 항목 목록 제시
 
 ### 형식상 팁
 

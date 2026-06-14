@@ -76,7 +76,7 @@ AI 레드티밍은 [MITRE ATLAS](../../governance/mitre-atlas/)에서 정리한 
 | 보안 취약점 | [프롬프트 인젝션](../../attacks/prompt-injection/), 도구 호출 권한 상승, SSRF 유발 |
 | 사실성/신뢰성 | hallucination, 출처 없는 단정적 답변 |
 
-이 목록은 [거버넌스의 위험 레지스터](../../governance/ai-risk-register/)와 자연스럽게 연결됩니다 — 레드팀에서 발견한 항목이 위험 레지스터의 입력값이 됩니다.
+이 목록은 [AI 위험 등록부 작성하기](../../../labs/lab3-ai-risk-register/)와 자연스럽게 연결됩니다 — 레드팀에서 발견한 항목이 위험 레지스터의 입력값이 됩니다.
 
 ### (3) 어떻게 기록할 것인가 (How to document)
 
