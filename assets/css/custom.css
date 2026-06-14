@@ -1,0 +1,48 @@
+/* Left sidebar collapse toggle */
+
+#hextra-sidebar-toggle {
+  position: fixed;
+  top: calc(var(--hextra-navbar-height) + 0.75rem);
+  left: 0.5rem;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(0 0 0 / 0.1);
+  background: #fff;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.dark #hextra-sidebar-toggle {
+  background: #111;
+  border-color: rgb(255 255 255 / 0.1);
+  color: #a3a3a3;
+}
+
+#hextra-sidebar-toggle:hover {
+  color: #111;
+  border-color: rgb(0 0 0 / 0.2);
+}
+
+.dark #hextra-sidebar-toggle:hover {
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.2);
+}
+
+@media (min-width: 768px) {
+  #hextra-sidebar-toggle {
+    display: flex;
+  }
+
+  .hx-sidebar-collapsed .hextra-sidebar-container {
+    display: none !important;
+  }
+
+  .hx-sidebar-collapsed #hextra-sidebar-toggle svg {
+    transform: rotate(180deg);
+  }
+}
