@@ -1,0 +1,77 @@
+# AI 보안 용어집
+#
+# 사용법: {{< term "적대적 예제" >}}
+
+- term: 적대적 예제
+  abbr: Adversarial Example
+  definition: "사람에게는 거의 차이가 없어 보이지만 모델의 예측을 의도적으로 틀리게 만드는, 미세한 변형(perturbation)이 추가된 입력 데이터."
+- term: 데이터 포이즈닝
+  abbr: Data Poisoning
+  definition: "학습 데이터에 악의적인 데이터를 주입하여 모델의 학습 결과를 왜곡하거나 백도어(트리거)를 심는 공격."
+- term: 모델 탈취
+  abbr: Model Extraction
+  definition: "공개된 API에 반복적으로 질의하여 응답을 수집한 뒤, 이를 바탕으로 원본 모델과 유사한 대체 모델을 학습시키는 공격."
+- term: 멤버십 추론 공격
+  abbr: Membership Inference Attack
+  definition: "특정 데이터가 모델의 학습 데이터셋에 포함되었는지 여부를 추론하는 공격으로, 개인정보 유출로 이어질 수 있다."
+- term: 모델 인버전
+  abbr: Model Inversion
+  definition: "모델의 출력이나 파라미터로부터 학습에 사용된 입력 데이터를 역으로 복원하려는 공격."
+- term: 프롬프트 인젝션
+  abbr: Prompt Injection
+  definition: "LLM에 입력되는 프롬프트(또는 LLM이 참조하는 외부 콘텐츠)에 악의적인 지시문을 삽입하여 모델의 원래 의도와 다른 동작을 유도하는 공격."
+- term: 간접 프롬프트 인젝션
+  abbr: Indirect Prompt Injection
+  definition: "공격자가 직접 프롬프트를 입력하지 않고, 모델이 읽는 웹페이지·문서·검색 결과 등 외부 콘텐츠에 악성 지시문을 숨겨두는 방식의 프롬프트 인젝션."
+- term: 탈옥
+  abbr: Jailbreak
+  definition: "모델에 내재된 안전장치(가드레일)를 우회하여, 본래 거부해야 할 유해하거나 정책에 위반되는 응답을 생성하도록 유도하는 기법."
+- term: 안전하지 않은 출력 처리
+  abbr: Insecure Output Handling
+  definition: "LLM의 출력을 검증 없이 SQL, 셸 명령, 코드 실행, 브라우저 렌더링 등 후속 시스템에 그대로 전달하여 발생하는 취약점."
+- term: 과도한 권한 부여
+  abbr: Excessive Agency
+  definition: "LLM 에이전트에게 실제 업무 수행에 필요한 수준보다 더 많은 기능·권한·자율성을 부여하여, 오작동이나 악용 시 피해 범위가 커지는 문제."
+- term: 적대적 훈련
+  abbr: Adversarial Training
+  definition: "학습 과정에서 적대적 예제를 함께 학습시켜 모델의 강건성(robustness)을 높이는 방어 기법."
+- term: 차분 프라이버시
+  abbr: Differential Privacy
+  definition: "데이터셋에 특정 개인의 데이터가 포함되었는지 여부가 분석 결과에 거의 영향을 주지 않도록 통계적 잡음을 추가하여 개인정보를 보호하는 수학적 프레임워크."
+- term: DP-SGD
+  definition: "Differentially Private Stochastic Gradient Descent. 그래디언트를 클리핑하고 노이즈를 추가하여 차분 프라이버시를 보장하는 딥러닝 학습 알고리즘."
+- term: 설명 가능한 AI
+  abbr: XAI
+  definition: "모델이 특정 예측을 내린 이유를 사람이 이해할 수 있는 형태로 제시하는 기법과 연구 분야. SHAP, LIME, Saliency Map 등이 대표적이다."
+- term: 동형암호
+  abbr: Homomorphic Encryption
+  definition: "데이터를 암호화한 상태에서 복호화 없이 연산을 수행할 수 있게 하는 암호화 기법으로, 모델 추론 시 입력 데이터를 노출하지 않고 처리할 수 있다."
+- term: SAIF
+  definition: "Secure AI Framework. Google이 제시한 AI 보안 프레임워크로, 기존 보안 기반 위에 AI 특화 위험(모델, 데이터, 파이프라인)을 얹어 다루는 접근을 권장한다."
+- term: MLOps
+  definition: "머신러닝 모델의 개발, 배포, 운영, 모니터링을 자동화하고 관리하기 위한 방법론 및 도구의 집합."
+- term: 모델 서빙
+  abbr: Model Serving
+  definition: "학습이 완료된 모델을 API나 엔드포인트 형태로 배포하여 실시간 또는 배치 추론 요청을 처리하는 과정."
+- term: SBOM
+  abbr: Software Bill of Materials
+  definition: "소프트웨어를 구성하는 구성요소와 의존성 목록을 명시한 문서. AI 영역에서는 모델 카드, 데이터시트 등으로 확장하여 적용한다."
+- term: OWASP LLM Top 10
+  definition: "OWASP가 발표한 LLM 애플리케이션의 대표적인 10가지 보안 위험 목록으로, 프롬프트 인젝션, 안전하지 않은 출력 처리, 공급망 취약점 등을 포함한다."
+- term: MITRE ATLAS
+  abbr: Adversarial Threat Landscape for Artificial-Intelligence Systems
+  definition: "MITRE ATT&CK 프레임워크를 AI 시스템에 확장한 위협 모델링 지식베이스로, AI 시스템에 대한 공격 전술과 기법을 체계적으로 정리한다."
+- term: NIST AI RMF
+  abbr: NIST AI Risk Management Framework
+  definition: "미국 NIST가 발표한 AI 위험관리 프레임워크로, Govern·Map·Measure·Manage 네 가지 기능으로 구성되어 AI 시스템의 위험을 체계적으로 관리하도록 안내한다."
+- term: EU AI Act
+  definition: "유럽연합의 AI 규제 법안으로, AI 시스템을 위험 수준(금지·고위험·제한적·최소)에 따라 분류하고 각 수준에 맞는 의무사항을 부과한다."
+- term: 레드티밍
+  abbr: Red Teaming
+  definition: "공격자의 관점에서 시스템의 취약점과 위험을 능동적으로 탐색하고, 그 결과를 측정·완화로 연결하는 보안 활동."
+- term: RAG
+  abbr: Retrieval-Augmented Generation
+  definition: "LLM이 응답을 생성하기 전에 외부 지식베이스에서 관련 문서를 검색하여 프롬프트에 포함시키는 방식으로, 최신 정보 반영과 사실성 향상을 목적으로 한다."
+- term: 위험 등록부
+  abbr: Risk Register
+  definition: "시스템이나 기능별로 식별된 위험 요소, 영향, 발생 가능성, 대응 통제, 책임자 등을 정리한 문서로 AI 거버넌스의 핵심 산출물이다."

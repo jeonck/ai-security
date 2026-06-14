@@ -2,6 +2,7 @@ baseURL = 'https://jeonck.github.io/ai-security/'
 title = 'AI Security'
 theme = 'hextra'
 locale = 'ko-KR'
+defaultContentLanguage = 'ko'
 hasCJKLanguage = true
 
 enableGitInfo = true
@@ -22,15 +23,35 @@ enableInlineShortcodes = true
   weight = 1
 
 [[menu.main]]
-  identifier = "github"
+  name = "실습"
+  pageRef = "/labs"
   weight = 2
+
+[[menu.main]]
+  name = "도구"
+  pageRef = "/tools"
+  weight = 3
+
+[[menu.main]]
+  name = "블로그"
+  pageRef = "/blog"
+  weight = 4
+
+[[menu.main]]
+  name = "용어집"
+  pageRef = "/glossary"
+  weight = 5
+
+[[menu.main]]
+  identifier = "github"
+  weight = 6
   url = "https://github.com/jeonck/ai-security"
   [menu.main.params]
     icon = "github"
 
 [[menu.main]]
   name = "검색"
-  weight = 3
+  weight = 7
   [menu.main.params]
     type = "search"
 
