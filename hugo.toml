@@ -1,0 +1,73 @@
+baseURL = 'https://jeonck.github.io/ai-security/'
+title = 'AI Security'
+theme = 'hextra'
+locale = 'ko-KR'
+hasCJKLanguage = true
+
+enableGitInfo = true
+enableRobotsTXT = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+enableInlineShortcodes = true
+
+[[menu.main]]
+  name = "AI 보안 학습 로드맵"
+  pageRef = "/docs"
+  weight = 1
+
+[[menu.main]]
+  identifier = "github"
+  weight = 2
+  url = "https://github.com/jeonck/ai-security"
+  [menu.main.params]
+    icon = "github"
+
+[[menu.main]]
+  name = "검색"
+  weight = 3
+  [menu.main.params]
+    type = "search"
+
+[params]
+  description = "AI 보안을 체계적으로 학습하기 위한 지식베이스: 거버넌스, LLM 애플리케이션 보안, 모델/데이터 보안, 인프라/공급망, 레드티밍, 운영까지."
+
+  [params.navbar]
+    displayTitle = true
+    displayLogo = false
+    width = "wide"
+
+  [params.theme]
+    default = "system"
+    displayToggle = true
+
+  [params.footer]
+    enable = true
+    displayCopyright = true
+    displayPoweredBy = true
+
+  displayUpdatedDate = true
+  dateFormat = "2006년 01월 02일"
+
+  [params.search]
+    enable = true
+    type = "flexsearch"
+    [params.search.flexsearch]
+      index = "content"
+      tokenize = "forward"
+
+  [params.toc]
+    displayTags = true
+
+  [params.highlight]
+    [params.highlight.copy]
+      enable = true
+      display = "hover"
+
+  [params.page]
+    width = "wide"
