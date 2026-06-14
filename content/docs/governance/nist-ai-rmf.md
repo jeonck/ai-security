@@ -105,6 +105,8 @@ NIST AI RMF에서 실무자가 가장 자주 놓치는 부분이 바로 **Measur
 
 이 두 가지는 운영(operations) 영역의 문제이기 때문에, [레드팀·실전 경험](../../red-teaming/) 섹션에서 다루는 지속적 레드티밍/모니터링 실습과 함께 학습하는 것이 효과적입니다.
 
+이 Map/Measure/Manage 단계는 [Lab 3: AI 위험 등록부 작성하기](../../../labs/lab3-ai-risk-register/)에서 "기능 목적/사용자", "현재 대응 통제", "운영 중지 조건" 항목으로 그대로 이어집니다.
+
 {{< callout type="info" >}}
 **핵심 요약**: NIST AI RMF는 "한 번 평가하고 끝"이 아니라 **Govern → Map → Measure → Manage의 순환을 반복**하는 프로세스입니다. 특히 Measure(지속적 측정)와 Manage(중단 체계)를 배포 전이 아니라 **운영 단계의 핵심 과제**로 보는 시각이, 실무 인터뷰에서 깊이 있는 답변을 만드는 차별점이 됩니다.
 {{< /callout >}}
