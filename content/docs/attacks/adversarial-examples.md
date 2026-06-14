@@ -64,7 +64,7 @@ Transferability는 특히 중요한 개념으로, 한 모델에서 생성된 적
 
 ## 방어와의 연결
 
-적대적 예제에 대한 가장 직접적인 방어는 [적대적 훈련 (Adversarial Training)](../defenses/adversarial-training)입니다. PGD와 같은 강력한 공격으로 생성한 적대적 예제를 학습 데이터에 포함시켜, 모델이 perturbation에 견고한 decision boundary를 학습하도록 만드는 방식입니다. 이는 본질적으로 "공격 기법을 방어에 그대로 활용"하는 대표적인 사례로, 공격 이해가 방어로 직결되는 좋은 예시입니다.
+적대적 예제에 대한 가장 직접적인 방어는 [적대적 훈련 (Adversarial Training)](../../defenses/adversarial-training/)입니다. PGD와 같은 강력한 공격으로 생성한 적대적 예제를 학습 데이터에 포함시켜, 모델이 perturbation에 견고한 decision boundary를 학습하도록 만드는 방식입니다. 이는 본질적으로 "공격 기법을 방어에 그대로 활용"하는 대표적인 사례로, 공격 이해가 방어로 직결되는 좋은 예시입니다.
 
 {{< callout type="warning" >}}
 적대적 훈련은 견고성을 높이지만 일반적으로 깨끗한(clean) 데이터에 대한 정확도를 일부 희생하는 트레이드오프가 있습니다. 또한 특정 공격 기법(예: $L_\infty$ PGD)에 대해 훈련된 모델이 다른 노름이나 공격 기법에는 여전히 취약할 수 있다는 점도 고려해야 합니다.
@@ -72,4 +72,4 @@ Transferability는 특히 중요한 개념으로, 한 모델에서 생성된 적
 
 ## 실습으로 이어가기
 
-이론적인 이해를 실제 코드로 확인해보고 싶다면 [ART/Foolbox 실습](../red-teaming/art-foolbox-practice) 페이지에서 Adversarial Robustness Toolbox(ART)와 Foolbox 라이브러리를 이용해 FGSM, PGD 공격을 직접 생성하고, 모델의 출력이 어떻게 바뀌는지 관찰할 수 있습니다. 이러한 실습은 적대적 예제의 위험성을 체감하고, 적대적 훈련을 적용했을 때 견고성이 실제로 어떻게 개선되는지 정량적으로 비교하는 데 유용합니다.
+이론적인 이해를 실제 코드로 확인해보고 싶다면 [ART/Foolbox 실습](../../red-teaming/art-foolbox-practice/) 페이지에서 Adversarial Robustness Toolbox(ART)와 Foolbox 라이브러리를 이용해 FGSM, PGD 공격을 직접 생성하고, 모델의 출력이 어떻게 바뀌는지 관찰할 수 있습니다. 이러한 실습은 적대적 예제의 위험성을 체감하고, 적대적 훈련을 적용했을 때 견고성이 실제로 어떻게 개선되는지 정량적으로 비교하는 데 유용합니다.

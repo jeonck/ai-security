@@ -63,7 +63,7 @@ AI 보안은 빠르게 변화하는 분야이기 때문에, 특정 책이나 강
 
 **원문**: Microsoft Learn의 "Planning red teaming for large language models (LLMs) and their applications" 문서를 검색해 참고하세요 (https://learn.microsoft.com 에서 "AI red teaming" 검색).
 
-**관련 학습 페이지**: [LLM·에이전트 레드티밍](/docs/red-teaming/llm-red-teaming) — 이 가이드의 접근 방식을 기반으로 작은 RAG 챗봇을 직접 레드티밍하는 실습을 안내합니다. 사용 도구는 [LLM 레드팀 도구](llm-redteam-tools)를 참고하세요.
+**관련 학습 페이지**: [LLM·에이전트 레드티밍](/docs/red-teaming/llm-red-teaming) — 이 가이드의 접근 방식을 기반으로 작은 RAG 챗봇을 직접 레드티밍하는 실습을 안내합니다. 사용 도구는 [LLM 레드팀 도구](../llm-redteam-tools/)를 참고하세요.
 
 ## 표준 간 관계 한눈에 보기
 

@@ -246,7 +246,7 @@ print("그래프를 fgsm_epsilon_curve.png 로 저장했습니다.")
 ## 더 살펴보기
 
 {{< cards >}}
-  {{< card link="/docs/attacks/adversarial-examples" title="적대적 예제 개념" subtitle="FGSM/PGD/C&W의 수학적 원리와 white-box/black-box 구분" >}}
-  {{< card link="/docs/defenses/adversarial-training" title="적대적 훈련" subtitle="이 실습에서 측정한 ASR을 낮추는 대표적 방어 기법" >}}
-  {{< card link="/tools/adversarial-ml-tools" title="적대적 ML 도구 모음" subtitle="ART 외 Foolbox, CleverHans 등 관련 도구 비교" >}}
+  {{< card link="../../docs/attacks/adversarial-examples/" title="적대적 예제 개념" subtitle="FGSM/PGD/C&W의 수학적 원리와 white-box/black-box 구분" >}}
+  {{< card link="../../docs/defenses/adversarial-training/" title="적대적 훈련" subtitle="이 실습에서 측정한 ASR을 낮추는 대표적 방어 기법" >}}
+  {{< card link="../../tools/adversarial-ml-tools/" title="적대적 ML 도구 모음" subtitle="ART 외 Foolbox, CleverHans 등 관련 도구 비교" >}}
 {{< /cards >}}

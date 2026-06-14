@@ -44,7 +44,7 @@ OWASP LLM Top 10은 버전이 계속 업데이트됩니다(2023년 초안 → 20
 | LLM07 System Prompt Leakage | 입력 계층에 있는 비밀이 출력으로 새어나감 |
 | LLM04 Data and Model Poisoning (RAG 인덱스 측면) | 검색 대상 문서 자체가 오염됨 |
 
-→ 자세한 공격 메커니즘은 [프롬프트 인젝션](../attacks/prompt-injection)과 [탈옥](../attacks/jailbreak) 페이지를 참고하세요.
+→ 자세한 공격 메커니즘은 [프롬프트 인젝션](../../attacks/prompt-injection/)과 [탈옥](../../attacks/jailbreak/) 페이지를 참고하세요.
 
 ### 2) 출력 계층 (Output Layer) — 모델이 생성한 결과를 다루는 단계
 
@@ -56,7 +56,7 @@ OWASP LLM Top 10은 버전이 계속 업데이트됩니다(2023년 초안 → 20
 | LLM02 Sensitive Information Disclosure | 출력에 민감 정보가 포함됨 |
 | LLM09 Misinformation | 출력 내용 자체의 사실성/신뢰성 문제 |
 
-→ 출력 검증이 빠졌을 때의 결과는 [프롬프트 인젝션](../attacks/prompt-injection) 사례에서 함께 다룹니다(인젝션된 지시가 출력으로 이어지고, 검증 없이 실행되는 체인 구조).
+→ 출력 검증이 빠졌을 때의 결과는 [프롬프트 인젝션](../../attacks/prompt-injection/) 사례에서 함께 다룹니다(인젝션된 지시가 출력으로 이어지고, 검증 없이 실행되는 체인 구조).
 
 ### 3) 툴 실행 계층 (Tool Execution Layer) — 에이전트가 실제로 행동을 일으키는 단계
 
@@ -90,7 +90,7 @@ LLM이 단순 텍스트 생성을 넘어 함수 호출, API 호출, 셸 명령, 
 이 4가지 질문에 답할 수 있다면, OWASP 항목 번호를 정확히 외우지 못해도 위험을 식별하고 의사소통할 수 있습니다. 또한 새로운 취약점이 발견되었을 때도 "이건 어느 계층의 문제인가"로 빠르게 분류할 수 있습니다.
 
 {{< callout type="info" >}}
-연관 공격 기법: [프롬프트 인젝션](../attacks/prompt-injection) · [탈옥](../attacks/jailbreak) · [모델 탈취 및 추출](../attacks/model-theft) · [데이터 포이즈닝](../attacks/data-poisoning)
+연관 공격 기법: [프롬프트 인젝션](../../attacks/prompt-injection/) · [탈옥](../../attacks/jailbreak/) · [모델 탈취 및 추출](../../attacks/model-theft/) · [데이터 포이즈닝](../../attacks/data-poisoning/)
 
-다음 페이지인 [MITRE ATLAS](mitre-atlas)에서는 이 4계층을 "공격자가 어떤 순서로 노리는가"라는 시간축 관점에서 다시 살펴봅니다.
+다음 페이지인 [MITRE ATLAS](../mitre-atlas/)에서는 이 4계층을 "공격자가 어떤 순서로 노리는가"라는 시간축 관점에서 다시 살펴봅니다.
 {{< /callout >}}

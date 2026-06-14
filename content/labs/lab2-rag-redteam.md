@@ -201,8 +201,8 @@ xss_doc = Document(
 ## 더 살펴보기
 
 {{< cards >}}
-  {{< card link="/docs/attacks/prompt-injection" title="프롬프트 인젝션 개념" subtitle="직접/간접 인젝션의 정의와 OWASP LLM Top 10 맥락" >}}
-  {{< card link="/docs/red-teaming/llm-red-teaming" title="LLM·에이전트 레드티밍" subtitle="Microsoft AI 레드팀 가이드 기반 방법론" >}}
-  {{< card link="/docs/red-teaming/portfolio-projects" title="포트폴리오 프로젝트" subtitle="이 실습을 확장한 포트폴리오용 프로젝트 아이디어" >}}
-  {{< card link="/tools/llm-redteam-tools" title="LLM 레드팀 도구 모음" subtitle="PyRIT, garak 등 자동화된 레드티밍 도구" >}}
+  {{< card link="../../docs/attacks/prompt-injection/" title="프롬프트 인젝션 개념" subtitle="직접/간접 인젝션의 정의와 OWASP LLM Top 10 맥락" >}}
+  {{< card link="../../docs/red-teaming/llm-red-teaming/" title="LLM·에이전트 레드티밍" subtitle="Microsoft AI 레드팀 가이드 기반 방법론" >}}
+  {{< card link="../../docs/red-teaming/portfolio-projects/" title="포트폴리오 프로젝트" subtitle="이 실습을 확장한 포트폴리오용 프로젝트 아이디어" >}}
+  {{< card link="../../tools/llm-redteam-tools/" title="LLM 레드팀 도구 모음" subtitle="PyRIT, garak 등 자동화된 레드티밍 도구" >}}
 {{< /cards >}}

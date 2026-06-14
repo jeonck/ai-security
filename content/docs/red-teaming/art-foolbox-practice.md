@@ -3,7 +3,7 @@ title: "ART·Foolbox로 적대적 공격 실습하기"
 weight: 1
 ---
 
-[적대적 예제(Adversarial Examples)](../attacks/adversarial-examples)와 [적대적 훈련(Adversarial Training)](../defenses/adversarial-training)을 글로만 읽으면 "입력에 작은 노이즈를 더해서 모델을 속인다"는 문장이 추상적으로 느껴집니다. 이 페이지에서는 오픈소스 라이브러리인 **IBM Adversarial Robustness Toolbox(ART)**와 **Foolbox**를 사용해, 실제로 이미지 분류기를 속이고, 공격 성공률을 측정하고, 방어까지 적용하는 전체 흐름을 코드로 따라갑니다.
+[적대적 예제(Adversarial Examples)](../../attacks/adversarial-examples/)와 [적대적 훈련(Adversarial Training)](../../defenses/adversarial-training/)을 글로만 읽으면 "입력에 작은 노이즈를 더해서 모델을 속인다"는 문장이 추상적으로 느껴집니다. 이 페이지에서는 오픈소스 라이브러리인 **IBM Adversarial Robustness Toolbox(ART)**와 **Foolbox**를 사용해, 실제로 이미지 분류기를 속이고, 공격 성공률을 측정하고, 방어까지 적용하는 전체 흐름을 코드로 따라갑니다.
 
 {{< callout type="info" >}}
 이 페이지의 코드는 학습 목적의 의사 코드/축약 코드입니다. 실제 실행 시에는 라이브러리 버전에 따라 API가 달라질 수 있으니 공식 문서를 함께 참고하세요.
@@ -175,7 +175,7 @@ print(f"PGD  ASR: {asr_pgd:.2%}")
 
 ## 8. ART로 적대적 훈련(Adversarial Training) 적용하기
 
-이제 [적대적 훈련](../defenses/adversarial-training)을 직접 적용해, 방어 전후의 강건성을 비교합니다. ART는 `AdversarialTrainer`를 통해 이 과정을 추상화합니다.
+이제 [적대적 훈련](../../defenses/adversarial-training/)을 직접 적용해, 방어 전후의 강건성을 비교합니다. ART는 `AdversarialTrainer`를 통해 이 과정을 추상화합니다.
 
 ```python
 from art.defences.trainer import AdversarialTrainer
@@ -213,6 +213,6 @@ print(f"PGD ASR (방어 후): {asr_after:.2%}")
 - [ ] Foolbox로 동일한 공격을 적용해 결과를 ART와 비교했다
 - [ ] 원본/적대적 이미지를 시각화하여 perturbation의 "보이지 않음"을 확인했다
 - [ ] ART의 `AdversarialTrainer`로 방어를 적용하고, clean accuracy와 robust accuracy(ASR의 반대)를 before/after로 표로 정리했다
-- [ ] 이 실습 결과를 GitHub README와 짧은 보고서로 정리했다 (→ [포트폴리오 프로젝트](portfolio-projects) 참고)
+- [ ] 이 실습 결과를 GitHub README와 짧은 보고서로 정리했다 (→ [포트폴리오 프로젝트](../portfolio-projects/) 참고)
 
-이 실습은 [적대적 예제](../attacks/adversarial-examples)에서 다룬 이론을 코드로 검증하고, [적대적 훈련](../defenses/adversarial-training)에서 다룬 방어 기법의 효과와 한계를 직접 데이터로 확인하는 과정입니다. 다음 페이지에서는 이미지 분류기를 넘어, LLM과 에이전트를 대상으로 한 레드티밍으로 넘어갑니다.
+이 실습은 [적대적 예제](../../attacks/adversarial-examples/)에서 다룬 이론을 코드로 검증하고, [적대적 훈련](../../defenses/adversarial-training/)에서 다룬 방어 기법의 효과와 한계를 직접 데이터로 확인하는 과정입니다. 다음 페이지에서는 이미지 분류기를 넘어, LLM과 에이전트를 대상으로 한 레드티밍으로 넘어갑니다.
