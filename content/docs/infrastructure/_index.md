@@ -32,4 +32,5 @@ AI 시스템의 보안 사고를 다루다 보면 자주 등장하는 오해가 
   {{< card link="mlops-pipeline-security" title="MLOps 파이프라인 보안" subtitle="데이터 수집→전처리→학습→평가→배포→모니터링 단계별 보안과 CI/CD 접근 제어" icon="cog" >}}
   {{< card link="model-serving-security" title="모델 서빙 보안" subtitle="추론 엔드포인트 보호, 모델 레지스트리, 무결성 검증, 모델 DoS 방어" icon="server" >}}
   {{< card link="supply-chain-risk" title="공급망 보안" subtitle="사전학습 모델·데이터셋·의존성의 공급망 리스크와 SBOM for AI" icon="link" >}}
+  {{< card link="../../labs/lab7-supply-chain-check/" title="Lab 7: AI 모델 공급망 보안 점검" subtitle="pip-audit·SBOM·체크섬으로 모델의 의존성과 출처를 점검하고 모델 카드를 작성합니다" icon="pencil-alt" >}}
 {{< /cards >}}

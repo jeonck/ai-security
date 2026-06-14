@@ -29,6 +29,7 @@ AI 시스템에 대한 공격이 다양화됨에 따라, 이에 대응하는 방
   {{< card link="adversarial-training" title="적대적 훈련 (Adversarial Training)" subtitle="적대적 예제에 대응하기 위해 훈련 과정 자체를 견고하게 만드는 기법" >}}
   {{< card link="differential-privacy" title="차분 프라이버시 (Differential Privacy)" subtitle="모델 탈취 및 멤버십 추론, 데이터 유출에 대응하는 수학적 프라이버시 보장" >}}
   {{< card link="xai" title="설명 가능한 AI (XAI)" subtitle="모델의 판단을 설명하여 이상 탐지, 감사, 신뢰성 확보에 활용" >}}
+  {{< card link="../../labs/lab6-adversarial-training-defense/" title="Lab 6: 적대적 훈련으로 모델 방어하기" subtitle="Lab 1의 FGSM/PGD 공격에 대한 robust accuracy를 적대적 훈련 적용 전/후로 비교합니다" icon="pencil-alt" >}}
 {{< /cards >}}
 
 ## 공격 섹션과의 연결

@@ -34,6 +34,9 @@ source ai-sec-lab/bin/activate   # Windows: ai-sec-lab\Scripts\activate
   {{< card link="lab2-rag-redteam" title="Lab 2: RAG 챗봇 레드팀 실습" subtitle="악성 문서 삽입을 통한 간접 프롬프트 인젝션과 출력 처리 취약점을 테스트합니다" >}}
   {{< card link="lab3-ai-risk-register" title="Lab 3: AI 위험 등록부 작성하기" subtitle="OWASP·MITRE ATLAS·NIST AI RMF·EU AI Act를 통합해 AI 기능 1개의 위험 등록부를 작성합니다" >}}
   {{< card link="lab4-model-serving-security" title="Lab 4: AI 모델 서빙 API 보안 점검" subtitle="최소 ML 추론 API를 띄우고 네트워크·웹·암호학·ML 기초 관점에서 보안 설정을 점검/개선합니다" >}}
+  {{< card link="lab5-data-poisoning-attack" title="Lab 5: 데이터 포이즈닝 공격 실습" subtitle="scikit-learn 분류 모델에 label-flipping과 백도어 트리거 포이즌을 주입하고 정확도/ASR을 측정합니다" >}}
+  {{< card link="lab6-adversarial-training-defense" title="Lab 6: 적대적 훈련으로 모델 방어하기" subtitle="FGSM/PGD에 대한 robust accuracy를 방어 적용 전/후로 비교하고 정확도-강건성 트레이드오프를 관찰합니다" >}}
+  {{< card link="lab7-supply-chain-check" title="Lab 7: AI 모델 공급망 보안 점검" subtitle="pip-audit·SBOM·체크섬으로 모델의 의존성과 출처를 점검하고 모델 카드를 작성합니다" >}}
 {{< /cards >}}
 
 {{< callout type="warning" >}}
