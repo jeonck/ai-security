@@ -3,7 +3,7 @@ title: "ART·Foolbox로 적대적 공격 실습하기"
 weight: 1
 ---
 
-[적대적 예제(Adversarial Examples)](../../attacks/adversarial-examples/)와 [적대적 훈련(Adversarial Training)](../../defenses/adversarial-training/)을 글로만 읽으면 "입력에 작은 노이즈를 더해서 모델을 속인다"는 문장이 추상적으로 느껴집니다. 이 페이지에서는 오픈소스 라이브러리인 **IBM Adversarial Robustness Toolbox(ART)**와 **Foolbox**를 사용해, 실제로 이미지 분류기를 속이고, 공격 성공률을 측정하고, 방어까지 적용하는 전체 흐름을 코드로 따라갑니다.
+[적대적 예제(Adversarial Examples)](../../attacks/adversarial-examples/)와 [적대적 훈련(Adversarial Training)](../../defenses/adversarial-training/)을 글로만 읽으면 "입력에 작은 노이즈를 더해서 모델을 속인다"는 문장이 추상적으로 느껴집니다. 이 페이지에서는 오픈소스 라이브러리인 **IBM Adversarial Robustness Toolbox**(ART)와 **Foolbox**를 사용해, 실제로 이미지 분류기를 속이고, 공격 성공률을 측정하고, 방어까지 적용하는 전체 흐름을 코드로 따라갑니다.
 
 {{< callout type="info" >}}
 이 페이지의 코드는 학습 목적의 의사 코드/축약 코드입니다. 실제 실행 시에는 라이브러리 버전에 따라 API가 달라질 수 있으니 공식 문서를 함께 참고하세요.
@@ -105,7 +105,7 @@ model.eval()
 
 ## 4. ART로 FGSM 공격 적용하기
 
-**FGSM(Fast Gradient Sign Method)**은 손실함수의 입력에 대한 기울기(gradient)의 부호(sign)를 이용해, 한 번의 연산으로 적대적 예제를 생성하는 가장 기본적인 공격입니다.
+**FGSM**(Fast Gradient Sign Method)은 손실함수의 입력에 대한 기울기(gradient)의 부호(sign)를 이용해, 한 번의 연산으로 적대적 예제를 생성하는 가장 기본적인 공격입니다.
 
 ```python
 from art.estimators.classification import PyTorchClassifier
@@ -136,7 +136,7 @@ x_test_adv = fgsm.generate(x=x_test)  # x_test: numpy array, shape (N, 1, 28, 28
 
 ## 5. ART로 PGD 공격 적용하기
 
-**PGD(Projected Gradient Descent)**는 FGSM을 여러 번 반복하면서, 매 스텝마다 perturbation을 `eps` 범위 안으로 다시 projection(투영)하는 방식입니다. FGSM보다 훨씬 강력하며, "강건성 평가의 표준 벤치마크"로 자주 사용됩니다.
+**PGD**(Projected Gradient Descent)는 FGSM을 여러 번 반복하면서, 매 스텝마다 perturbation을 `eps` 범위 안으로 다시 projection(투영)하는 방식입니다. FGSM보다 훨씬 강력하며, "강건성 평가의 표준 벤치마크"로 자주 사용됩니다.
 
 ```python
 from art.attacks.evasion import ProjectedGradientDescent

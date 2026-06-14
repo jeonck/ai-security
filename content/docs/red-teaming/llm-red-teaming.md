@@ -42,7 +42,7 @@ flowchart TB
 
 Microsoft의 AI 레드팀 가이드는 AI 레드티밍을 다음과 같이 정의합니다.
 
-> AI 레드티밍은 AI 시스템의 **유해한 출력(harmful outputs)**, **안전장치 우회(bypass of safeguards)**, **오남용(misuse) 가능성**, 그리고 전통적인 **보안 위험(security risks)**을 드러내고, 이를 **측정(measurement)**하고 **완화(mitigation)**로 연결하는 구조화된 활동이다.
+> AI 레드티밍은 AI 시스템의 **유해한 출력**(harmful outputs), **안전장치 우회**(bypass of safeguards), **오남용**(misuse) 가능성, 그리고 전통적인 **보안 위험**(security risks)을 드러내고, 이를 **측정**(measurement)하고 **완화**(mitigation)로 연결하는 구조화된 활동이다.
 
 이 정의에서 중요한 포인트는 세 가지입니다.
 
@@ -65,7 +65,7 @@ AI 레드티밍은 [MITRE ATLAS](../../governance/mitre-atlas/)에서 정리한 
 
 ### (2) 무엇을 테스트할 것인가 (What) — Harm List
 
-테스트 범위를 정의하는 **harm list(유해 사례 목록)**를 먼저 작성합니다. 예시 카테고리:
+테스트 범위를 정의하는 **harm list**(유해 사례 목록)를 먼저 작성합니다. 예시 카테고리:
 
 | 카테고리 | 예시 |
 | --- | --- |

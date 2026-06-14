@@ -3,9 +3,9 @@ title: "MITRE ATLAS"
 weight: 2
 ---
 
-**MITRE ATLAS(Adversarial Threat Landscape for Artificial-Intelligence Systems)**는 AI/ML 시스템을 겨냥한 공격자의 전술(Tactics)과 기법(Techniques)을 정리한 지식베이스입니다. 보안 업계에서 널리 쓰이는 **MITRE ATT&CK**(전통적인 IT 시스템에 대한 공격자 행동 매트릭스)의 AI 확장판이라고 보면 됩니다.
+**MITRE ATLAS**(Adversarial Threat Landscape for Artificial-Intelligence Systems)는 AI/ML 시스템을 겨냥한 공격자의 전술(Tactics)과 기법(Techniques)을 정리한 지식베이스입니다. 보안 업계에서 널리 쓰이는 **MITRE ATT&CK**(전통적인 IT 시스템에 대한 공격자 행동 매트릭스)의 AI 확장판이라고 보면 됩니다.
 
-OWASP LLM Top 10이 "어떤 취약점이 존재하는가"를 다룬다면, ATLAS는 **"공격자가 그 취약점을 어떻게, 어떤 순서로 악용하는가"**를 다룹니다. 즉 OWASP는 정적인 체크리스트에 가깝고, ATLAS는 공격자의 캠페인을 시간순으로 재구성하는 데 유용한 동적 모델입니다.
+OWASP LLM Top 10이 "어떤 취약점이 존재하는가"를 다룬다면, ATLAS는 "**공격자가 그 취약점을 어떻게, 어떤 순서로 악용하는가**"를 다룹니다. 즉 OWASP는 정적인 체크리스트에 가깝고, ATLAS는 공격자의 캠페인을 시간순으로 재구성하는 데 유용한 동적 모델입니다.
 
 ```mermaid
 flowchart LR

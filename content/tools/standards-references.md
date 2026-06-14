@@ -19,7 +19,7 @@ AI 보안은 빠르게 변화하는 분야이기 때문에, 특정 책이나 강
 
 ## MITRE ATLAS
 
-**요약**: MITRE ATT&CK의 AI 시스템 버전으로, 공격자가 AI/ML 시스템을 노릴 때 사용하는 **전술(Tactics)과 기법(Techniques)**을 체계적으로 정리한 지식베이스입니다. 데이터 수집(reconnaissance) 단계부터 모델 탈취, 데이터 포이즈닝, 적대적 예제 생성, 영향(impact) 단계까지의 공격 체인을 표준화된 용어로 기술합니다. 위협모델링과 레드팀 시나리오 설계에 직접 활용됩니다.
+**요약**: MITRE ATT&CK의 AI 시스템 버전으로, 공격자가 AI/ML 시스템을 노릴 때 사용하는 **전술**(Tactics)과 **기법**(Techniques)을 체계적으로 정리한 지식베이스입니다. 데이터 수집(reconnaissance) 단계부터 모델 탈취, 데이터 포이즈닝, 적대적 예제 생성, 영향(impact) 단계까지의 공격 체인을 표준화된 용어로 기술합니다. 위협모델링과 레드팀 시나리오 설계에 직접 활용됩니다.
 
 **원문**: https://atlas.mitre.org/
 
@@ -27,7 +27,7 @@ AI 보안은 빠르게 변화하는 분야이기 때문에, 특정 책이나 강
 
 ## NIST AI Risk Management Framework (AI RMF)
 
-**요약**: 미국 NIST(국립표준기술연구소)가 발행한 AI 시스템의 위험을 관리하기 위한 자발적(voluntary) 프레임워크입니다. AI 시스템의 신뢰성(trustworthiness)을 정의하고, 이를 **Govern(거버넌스) – Map(맵핑) – Measure(측정) – Manage(관리)**의 4가지 핵심 기능으로 구조화합니다. 조직 차원의 AI 위험관리 프로세스를 설계할 때 가장 널리 참조되는 프레임워크입니다.
+**요약**: 미국 NIST(국립표준기술연구소)가 발행한 AI 시스템의 위험을 관리하기 위한 자발적(voluntary) 프레임워크입니다. AI 시스템의 신뢰성(trustworthiness)을 정의하고, 이를 **Govern**(거버넌스) – **Map**(맵핑) – **Measure**(측정) – **Manage**(관리)의 4가지 핵심 기능으로 구조화합니다. 조직 차원의 AI 위험관리 프로세스를 설계할 때 가장 널리 참조되는 프레임워크입니다.
 
 **원문**: https://www.nist.gov/itl/ai-risk-management-framework
 
@@ -35,7 +35,7 @@ AI 보안은 빠르게 변화하는 분야이기 때문에, 특정 책이나 강
 
 ## NIST Generative AI Profile
 
-**요약**: NIST AI RMF의 부속 문서로, **생성형 AI(Generative AI)**에 특화된 위험(환각, 유해 콘텐츠 생성, 딥페이크, 학습 데이터 유출, 환경 영향 등)과 이를 관리하기 위한 실행 항목(actions)을 제공합니다. AI RMF의 일반적인 4기능을 생성형 AI/LLM 맥락에 맞게 구체화한 보충 자료로 이해하면 됩니다.
+**요약**: NIST AI RMF의 부속 문서로, **생성형 AI**(Generative AI)에 특화된 위험(환각, 유해 콘텐츠 생성, 딥페이크, 학습 데이터 유출, 환경 영향 등)과 이를 관리하기 위한 실행 항목(actions)을 제공합니다. AI RMF의 일반적인 4기능을 생성형 AI/LLM 맥락에 맞게 구체화한 보충 자료로 이해하면 됩니다.
 
 **원문**: https://www.nist.gov/itl/ai-risk-management-framework (NIST AI RMF 페이지 내 "Generative AI Profile" 섹션에서 확인 가능)
 
@@ -43,7 +43,7 @@ AI 보안은 빠르게 변화하는 분야이기 때문에, 특정 책이나 강
 
 ## EU AI Act
 
-**요약**: 유럽연합이 제정한 세계 최초의 포괄적 AI 규제법입니다. AI 시스템을 위험 수준에 따라 **금지(prohibited), 고위험(high-risk), 제한적 위험(limited risk), 최소 위험(minimal risk)**의 4단계로 분류하고, 각 단계에 맞는 의무(투명성, 위험관리, 인적 감독 등)를 부과합니다. 글로벌 서비스를 운영하는 조직이라면 컴플라이언스 관점에서 반드시 이해해야 할 규제입니다.
+**요약**: 유럽연합이 제정한 세계 최초의 포괄적 AI 규제법입니다. AI 시스템을 위험 수준에 따라 **금지**(prohibited), **고위험**(high-risk), **제한적 위험**(limited risk), **최소 위험**(minimal risk)의 4단계로 분류하고, 각 단계에 맞는 의무(투명성, 위험관리, 인적 감독 등)를 부과합니다. 글로벌 서비스를 운영하는 조직이라면 컴플라이언스 관점에서 반드시 이해해야 할 규제입니다.
 
 **원문**: https://artificialintelligenceact.eu/
 

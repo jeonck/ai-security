@@ -37,7 +37,7 @@ x_adv = attack.generate(x=x_test)
 
 **GitHub**: https://github.com/Trusted-AI/adversarial-robustness-toolbox
 
-특징적으로 ART는 단순 공격/방어를 넘어, **모델 탈취(model extraction)**와 **멤버십 추론(membership inference)** 같은 프라이버시 공격까지 같은 라이브러리 안에서 다룰 수 있어, [모델 탈취 및 추출](/docs/attacks/model-theft) 주제를 실습할 때도 유용합니다.
+특징적으로 ART는 단순 공격/방어를 넘어, **모델 탈취**(model extraction)와 **멤버십 추론**(membership inference) 같은 프라이버시 공격까지 같은 라이브러리 안에서 다룰 수 있어, [모델 탈취 및 추출](/docs/attacks/model-theft) 주제를 실습할 때도 유용합니다.
 
 ## Foolbox
 

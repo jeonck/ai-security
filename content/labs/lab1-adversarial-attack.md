@@ -3,7 +3,7 @@ title: "Lab 1: 이미지 분류기에 적대적 공격 실행하기"
 weight: 1
 ---
 
-이 실습에서는 PyTorch로 학습된 작은 CNN(MNIST 분류기)에 대해, IBM의 **ART(Adversarial Robustness Toolbox)**를 사용하여 FGSM과 PGD 공격을 직접 실행합니다. 공격 전후의 정확도를 비교하고, 공격 성공률(Attack Success Rate, ASR)을 계산합니다.
+이 실습에서는 PyTorch로 학습된 작은 CNN(MNIST 분류기)에 대해, IBM의 **ART**(Adversarial Robustness Toolbox)를 사용하여 FGSM과 PGD 공격을 직접 실행합니다. 공격 전후의 정확도를 비교하고, 공격 성공률(Attack Success Rate, ASR)을 계산합니다.
 
 관련 개념은 [적대적 예제 (Adversarial Examples)](/docs/attacks/adversarial-examples) 문서를 참고하세요.
 

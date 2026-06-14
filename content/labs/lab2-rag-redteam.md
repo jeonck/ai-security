@@ -3,7 +3,7 @@ title: "Lab 2: RAG 챗봇 레드팀 실습"
 weight: 2
 ---
 
-이 실습에서는 아주 작은 RAG(Retrieval-Augmented Generation) 챗봇을 직접 구성하고, 그 안에 **악성 지시문이 숨겨진 문서**를 의도적으로 삽입하여 **간접 프롬프트 인젝션(indirect prompt injection)**이 실제로 어떻게 동작하는지 관찰합니다. 또한 시스템 프롬프트 유출, 민감정보 회수, 출력 후속처리(output handling) 취약점까지 함께 점검합니다.
+이 실습에서는 아주 작은 RAG(Retrieval-Augmented Generation) 챗봇을 직접 구성하고, 그 안에 **악성 지시문이 숨겨진 문서**를 의도적으로 삽입하여 **간접 프롬프트 인젝션**(indirect prompt injection)이 실제로 어떻게 동작하는지 관찰합니다. 또한 시스템 프롬프트 유출, 민감정보 회수, 출력 후속처리(output handling) 취약점까지 함께 점검합니다.
 
 배경 지식은 [프롬프트 인젝션](/docs/attacks/prompt-injection)과 [LLM·에이전트 레드티밍](/docs/red-teaming/llm-red-teaming) 문서를 참고하세요.
 
