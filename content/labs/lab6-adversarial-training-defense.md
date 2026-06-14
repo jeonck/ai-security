@@ -241,9 +241,9 @@ print(f"PGD robust accuracy:   {acc_pgd_before*100:.2f}% -> {acc_pgd_after*100:.
 
 ## 학습효과
 
-- [Lab 1](../lab1-adversarial-attack/)에서 확인한 취약점을 그대로 이어받아, "공격자 관점 → 방어자 관점"으로 시야를 전환하며 적대적 훈련(Adversarial Training)을 직접 구현한다.
-- 방어 적용 전/후의 robust accuracy와 clean accuracy를 동일한 위협 모델(FGSM/PGD, eps=0.2)로 비교해, robustness-accuracy tradeoff를 수치로 확인한다.
-- "방어를 적용했다"는 것이 모든 공격에 대한 안전을 의미하지 않는다는 한계를 이해하고, 더 강한/적응형 공격에 대한 후속 검증의 필요성을 인식한다.
+- **공격자-방어자 관점 전환**: [Lab 1](../lab1-adversarial-attack/)에서 확인한 취약점을 그대로 이어받아, 같은 모델/공격으로 적대적 훈련(Adversarial Training)을 직접 구현하며 방어자 시각을 갖춥니다.
+- **트레이드오프의 수치화**: 방어 적용 전/후의 robust accuracy와 clean accuracy를 동일한 위협 모델(FGSM/PGD, eps=0.2)로 비교해, robustness-accuracy tradeoff를 직접 측정합니다.
+- **방어의 한계 인식**: "방어를 적용했다"는 것이 모든 공격에 대한 안전을 의미하지 않음을 이해하고, 더 강한/적응형 공격에 대한 후속 검증의 필요성을 인식합니다.
 
 ## 더 살펴보기
 
