@@ -32,6 +32,7 @@ source ai-sec-lab/bin/activate   # Windows: ai-sec-lab\Scripts\activate
 {{< cards >}}
   {{< card link="lab1-adversarial-attack" title="Lab 1: 적대적 공격 실습" subtitle="ART로 이미지 분류기에 FGSM/PGD 공격을 실행하고 정확도 하락과 ASR을 측정합니다" >}}
   {{< card link="lab2-rag-redteam" title="Lab 2: RAG 챗봇 레드팀 실습" subtitle="악성 문서 삽입을 통한 간접 프롬프트 인젝션과 출력 처리 취약점을 테스트합니다" >}}
+  {{< card link="../docs/governance/ai-risk-register/" title="Lab 3: AI 위험 등록부 작성하기" subtitle="OWASP·MITRE ATLAS·NIST AI RMF·EU AI Act를 통합해 AI 기능 1개의 위험 등록부를 작성합니다" >}}
 {{< /cards >}}
 
 {{< callout type="warning" >}}
