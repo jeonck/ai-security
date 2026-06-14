@@ -9,6 +9,41 @@ weight: 3
 XAI 기법은 크게 **모델에 무관한(model-agnostic) 사후(post-hoc) 설명 기법**(SHAP, LIME 등)과 **모델 구조에 내재된 설명 기법**(attention, saliency map 등)으로 나눌 수 있습니다. 보안 활용 시에는 어떤 종류의 설명인지, 그리고 그 설명이 얼마나 신뢰할 수 있는지(faithfulness)를 함께 고려해야 합니다.
 {{< /callout >}}
 
+```mermaid
+flowchart LR
+    subgraph TECH["XAI 기법"]
+        X1["SHAP\nShapley value 기반\n특성 기여도 분해"]
+        X2["LIME\n국소 선형 근사"]
+        X3["Attention\nVisualization"]
+        X4["Saliency Maps\n(Grad-CAM 등)"]
+    end
+
+    subgraph USE["보안 활용"]
+        U1["이상/적대적 입력 탐지"]
+        U2["모델 행동 감사\n& drift 탐지"]
+        U3["포이즈닝/백도어\n탐지"]
+        U4["신뢰성·책임성\n(거버넌스)"]
+    end
+
+    X4 --> U1
+    X1 --> U2
+    X3 --> U2
+    X1 --> U3
+    X4 --> U3
+    X1 --> U4
+    X2 --> U4
+
+    U1 -.우회 가능.- R1["적응형 공격에\n탐지 우회 위험"]
+    X4 -.그래디언트 노출.- T1["적대적 예제\n생성에 악용"]
+    X1 -.질의 효율 향상.- T2["모델 추출\n(Model Theft)"]
+    X3 -.설명 자체 조작.- T3["설명 조작\n(Manipulating Explanations)"]
+
+    classDef xai fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class X1,X2,X3,X4,U1,U2,U3,U4 xai;
+    class R1,T1,T2,T3 threat;
+```
+
 ## 1. 대표적인 XAI 기법 개요
 
 ### SHAP (SHapley Additive exPlanations)

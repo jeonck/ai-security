@@ -9,6 +9,36 @@ weight: 2
 차분 프라이버시는 "데이터를 익명화하는 기법"이 아니라, **알고리즘(또는 메커니즘) 자체가 가지는 수학적 속성**입니다. 즉 "이 데이터셋은 DP를 만족한다"가 아니라 "이 학습 알고리즘은 ε-DP를 만족한다"고 표현하는 것이 정확합니다.
 {{< /callout >}}
 
+```mermaid
+flowchart LR
+    subgraph DPSGD["DP-SGD 메커니즘"]
+        D1["개별 샘플 그래디언트\nper-example gradient"]
+        D2["그래디언트 클리핑\n(L2 norm ≤ C)\n→ 민감도 제한"]
+        D3["가우시안 노이즈 추가\nN(0, σ²C²I)"]
+        D4["노이즈 적용된 그래디언트로\n파라미터 업데이트"]
+    end
+
+    subgraph BUDGET["Privacy Budget 트레이드오프"]
+        E1["ε 작음\n강한 프라이버시\n↓ 정확도"]
+        E2["ε 큼\n약한 프라이버시\n↑ 정확도"]
+        E3["소수 클래스/그룹\n공정성(Fairness) 손상"]
+    end
+
+    D1 --> D2 --> D3 --> D4
+    D3 -.σ 클수록.- E1
+    D3 -.σ 작을수록.- E2
+    D2 -.클리핑 불균등 영향.- E3
+
+    D4 -.무력화.- T1["멤버십 추론 /\n모델 역전 공격\n(Model Theft)"]
+    E3 -.유사한 트레이드오프.- T2["적대적 훈련\nrobustness-accuracy\ntradeoff"]
+    D3 -.대안/보완.- T3["동형암호(HE)\n(암호학 기초)"]
+
+    classDef dp fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class D1,D2,D3,D4,E1,E2 dp;
+    class E3,T1,T2,T3 threat;
+```
+
 ## 1. 정의: ε-차분 프라이버시
 
 두 데이터셋 `D`와 `D'`가 단 하나의 레코드(한 사람의 데이터)만 다를 때(인접 데이터셋, neighboring datasets), 메커니즘 `M`이 다음을 만족하면 `M`은 **ε-차분 프라이버시**를 만족한다고 합니다.

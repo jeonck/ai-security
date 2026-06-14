@@ -5,6 +5,37 @@ weight: 4
 
 **EU AI Act(유럽연합 인공지능법)**는 AI 시스템에 대한 세계 최초의 포괄적 규제 법안입니다. GDPR이 전 세계 데이터 프라이버시 규제에 영향을 준 것처럼, EU AI Act도 유럽 시장에 제품을 출시하는 모든 기업에게 사실상의 글로벌 표준으로 작동할 가능성이 높습니다. 앞의 세 페이지(OWASP, ATLAS, NIST AI RMF)가 "어떻게 위험을 식별·관리하는가"에 대한 프레임워크였다면, EU AI Act는 **"법적으로 무엇을 반드시 해야 하는가"**를 규정합니다.
 
+```mermaid
+flowchart TB
+    subgraph TIER["위험 기반 4단계 분류"]
+        R1["금지 (Unacceptable Risk)\n사회적 신용평가, 실시간 생체인식"]
+        R2["고위험 (High Risk)\n채용평가, 신용평가, 의료기기 AI"]
+        R3["제한적 위험 (Limited Risk)\n챗봇, 딥페이크 생성기"]
+        R4["최소 위험 (Minimal Risk)\n스팸 필터, 추천 시스템"]
+    end
+
+    R1 --> R2 --> R3 --> R4
+
+    subgraph DUTY["고위험 AI 의무사항"]
+        D1["위험관리 시스템"]
+        D2["데이터 거버넌스"]
+        D3["기술 문서화 & 로깅"]
+        D4["인간 감독\n(Human Oversight)"]
+        D5["GPAI 별도 의무\n모델평가·적대적테스트"]
+    end
+
+    R2 --> D1 --> D2 --> D3 --> D4
+
+    D1 -.대응.- N1["NIST AI RMF\nGovern/Map"]
+    D4 -.동일 고려사항.- N2["OWASP LLM06\nExcessive Agency"]
+    D5 -.법적 의무화.- N3["레드팀 실습\nLLM 레드티밍"]
+
+    classDef tier fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class R1,R2,R3,R4,D1,D2,D3,D4,D5 tier;
+    class N1,N2,N3 threat;
+```
+
 {{< callout type="info" >}}
 EU AI Act는 EU에 본사가 있는 기업뿐 아니라, **EU 시장에 AI 시스템을 제공하거나 EU 거주자에게 영향을 미치는 AI 시스템의 출력을 사용하는 모든 기업**에 적용될 수 있습니다(역외 적용, extraterritorial effect). GDPR과 마찬가지로 "우리는 한국/미국 회사니까 상관없다"는 가정은 위험합니다.
 {{< /callout >}}

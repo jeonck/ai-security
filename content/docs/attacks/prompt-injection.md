@@ -5,6 +5,39 @@ weight: 4
 
 프롬프트 인젝션(Prompt Injection)은 LLM 시대에 가장 널리 알려지고 가장 빈번하게 발생하는 공격으로, OWASP Top 10 for LLM Applications에서 **LLM01: Prompt Injection**으로 최상위에 자리할 만큼 핵심적인 위협으로 인정받고 있습니다. 전통적인 소프트웨어 보안에서 SQL 인젝션이 "데이터와 코드(명령어)의 경계가 무너질 때" 발생하는 문제였다면, 프롬프트 인젝션은 LLM이 "지시(instruction)"와 "데이터(처리할 내용)"를 명확히 구분하지 못한다는 근본적인 특성에서 비롯됩니다.
 
+```mermaid
+flowchart LR
+    subgraph SOURCE["인젝션 경로"]
+        S1["Direct\n(사용자가 직접 입력)"]
+        S2["Indirect\n(웹페이지, RAG 문서,\n이메일, 도구 결과)"]
+    end
+
+    subgraph CAUSE["근본 원인"]
+        C1["지시와 데이터가\n하나의 토큰 시퀀스로 처리됨\n(구조적 구분 불가)"]
+    end
+
+    subgraph IMPACT["다운스트림 영향"]
+        I1["역할/지시 변경"]
+        I2["System Prompt 유출"]
+        I3["Insecure Output Handling\n(SQL/코드 실행/XSS/도구 호출)"]
+    end
+
+    S1 --> C1
+    S2 --> C1
+    C1 --> I1
+    C1 --> I2
+    C1 --> I3
+
+    S1 -.목적 결합.- J["탈옥\n(안전 정책 우회)"]
+    S2 -.동일 메커니즘.- DP["데이터 포이즈닝\n(RAG 인덱스 오염)"]
+    I3 -.행동으로 직결.- AGENT["에이전트 권한\n(Excessive Agency)"]
+
+    classDef inj fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class S1,S2,C1,I1,I2,I3 inj;
+    class J,DP,AGENT threat;
+```
+
 ## 정의와 핵심 문제
 
 LLM은 시스템 프롬프트, 개발자가 제공한 지시, 사용자의 입력, 검색된 문서, 도구(tool)의 실행 결과 등 다양한 출처에서 온 텍스트를 **하나의 연속된 토큰 시퀀스**로 처리합니다. 모델 입장에서는 이 모든 텍스트가 "프롬프트"일 뿐이며, 어느 부분이 "신뢰할 수 있는 지시"이고 어느 부분이 "단순히 처리해야 할 데이터"인지를 구조적으로 구분할 강력한 메커니즘이 없습니다.

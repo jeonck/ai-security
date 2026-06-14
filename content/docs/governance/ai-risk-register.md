@@ -9,6 +9,35 @@ weight: 5
 위험 등록부는 전통적인 보안/리스크 관리에서도 흔히 쓰는 산출물입니다. 다만 AI 위험 등록부는 "모델/데이터/에이전트 권한"이라는 AI 특화 항목을 추가로 다룬다는 점이 다릅니다. 이 실습은 거버넌스 섹션의 최종 산출물이자, 동시에 이 지식베이스 전체를 관통하는 통합 실습입니다.
 {{< /callout >}}
 
+```mermaid
+flowchart LR
+    subgraph SRC["4개 프레임워크"]
+        F1["OWASP LLM Top 10\n프롬프트 계층 위험"]
+        F2["MITRE ATLAS\n4-레이어 위협매핑"]
+        F3["NIST AI RMF\nMap/Measure/Manage"]
+        F4["EU AI Act\n위험 등급 분류"]
+    end
+
+    subgraph REG["AI 위험 등록부 (11개 항목)"]
+        I1["기능 ID·목적·사용자\n입력데이터·모델공급자·툴/권한"]
+        I2["실패 시 영향\n(Impact if Compromised)"]
+        I3["위험 등급\n(Risk Classification)"]
+        I4["현재 통제 & 잔여위험\n& 운영 중지 조건"]
+    end
+
+    I1 --> I2 --> I3 --> I4
+
+    F1 -.입력데이터/툴권한.- I1
+    F2 -.영향 시나리오.- I2
+    F4 -.등급 판단.- I3
+    F3 -.통제·중단조건.- I4
+
+    classDef src fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef reg fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class F1,F2,F3,F4 src;
+    class I1,I2,I3,I4 reg;
+```
+
 ## 왜 이 실습이 중요한가
 
 AI 보안 관련 면접에서 가장 자주 받는 질문 중 하나는 다음과 같은 형태입니다.

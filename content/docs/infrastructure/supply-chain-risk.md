@@ -5,6 +5,45 @@ weight: 3
 
 오늘날 AI 시스템을 처음부터 끝까지 자체적으로 만드는 조직은 거의 없습니다. 대부분은 **사전학습 모델(pretrained model)**, **오픈소스 가중치**, **공개 데이터셋**, **ML 프레임워크와 라이브러리**, 때로는 **제3자 fine-tuning 서비스나 플러그인**을 조합해 시스템을 구성합니다. 이 모든 외부 구성요소가 곧 공급망(supply chain)이며, 전통적인 소프트웨어 공급망 공격(악성 패키지, 의존성 하이재킹)의 개념이 AI 영역에서는 **모델, 데이터셋, 토크나이저, 학습 코드**까지 확장됩니다. OWASP LLM Top 10의 **LLM05: Supply Chain Vulnerabilities**가 이 영역을 다룹니다.
 
+```mermaid
+flowchart LR
+    subgraph EXT["외부 공급망 구성요소"]
+        E1["사전학습 모델/\n오픈소스 가중치"]
+        E2["공개 데이터셋"]
+        E3["ML 프레임워크/\n라이브러리 의존성"]
+        E4["제3자 파인튜닝\n서비스 / 플러그인"]
+    end
+
+    subgraph RISK["진입 가능 위험"]
+        R1["백도어 모델\n/ 출처 불명 체인"]
+        R2["사전 오염된 데이터\n(pre-poisoning)"]
+        R3["pickle 역직렬화\n→ RCE / 악성 패키지"]
+        R4["권한 남용\n/ 데이터 재사용"]
+    end
+
+    subgraph MIT["완화 / 가시성"]
+        M1["모델 카드 +\n레드팀 평가"]
+        M2["데이터시트 +\n해시 기록"]
+        M3["safetensors +\nSCA 의존성 스캔"]
+        M4["권한 최소화 +\nAI SBOM"]
+    end
+
+    E1 --> R1 --> M1
+    E2 --> R2 --> M2
+    E3 --> R3 --> M3
+    E4 --> R4 --> M4
+
+    M1 -.등록 전 검증.- E1
+    M2 -.버전 고정.- E2
+
+    classDef ext fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef risk fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    classDef mit fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    class E1,E2,E3,E4 ext;
+    class R1,R2,R3,R4 risk;
+    class M1,M2,M3,M4 mit;
+```
+
 {{< callout type="info" >}}
 공급망 보안은 [거버넌스·리스크 관리 → OWASP LLM Top 10](../../governance/owasp-llm-top10/)의 LLM05 항목과 직접 대응됩니다. 이 페이지는 LLM05의 구체적인 통제 방안을 인프라 관점에서 풀어낸 내용입니다.
 {{< /callout >}}

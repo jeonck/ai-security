@@ -5,6 +5,41 @@ weight: 1
 
 적대적 예제(Adversarial Examples)는 머신러닝 보안 연구의 시작점이라 할 수 있는 공격 유형입니다. 2013년 Szegedy 등의 연구에서 처음 체계적으로 보고된 이후, 신경망 기반 모델이 사람의 눈에는 거의 동일하게 보이는 입력에 대해 완전히 다른(그리고 종종 매우 confident한) 출력을 내놓을 수 있다는 사실이 알려지면서, 딥러닝 모델의 신뢰성에 대한 근본적인 의문을 제기했습니다.
 
+```mermaid
+flowchart LR
+    subgraph KNOW["공격자의 정보 수준"]
+        K1["White-box\n(그래디언트 직접 접근)"]
+        K2["Black-box\n(입출력만 관찰)"]
+    end
+
+    subgraph METHOD["perturbation 생성 기법"]
+        M1["FGSM\n(1회 그래디언트)"]
+        M2["PGD\n(반복 + 투영)"]
+        M3["C&W\n(최소 perturbation 최적화)"]
+        M4["Surrogate 모델 +\nTransferability / Query-based"]
+    end
+
+    subgraph GOAL["공격 목표"]
+        G1["Untargeted\n(틀린 답이면 성공)"]
+        G2["Targeted\n(특정 클래스로 유도)"]
+    end
+
+    K1 --> M1 --> M2 --> M3
+    K2 --> M4
+    M4 -.전이.- M2
+
+    M1 --> G1
+    M2 --> G2
+    M3 --> G2
+
+    G2 -.방어.- D1["적대적 훈련\n(Adversarial Training)"]
+
+    classDef adv fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef def fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class K1,K2,M1,M2,M3,M4,G1,G2 adv;
+    class D1 def;
+```
+
 ## 정의
 
 적대적 예제란, 원본 입력 $x$에 사람이 인지하기 어려운 작은 변형(perturbation) $\delta$를 더한 입력 $x' = x + \delta$로서, 모델 $f$가 $f(x) \neq f(x')$ 혹은 공격자가 원하는 특정 클래스 $y_{target}$에 대해 $f(x') = y_{target}$을 만족하도록 만든 입력입니다. 일반적으로 $\delta$의 크기는 $L_p$ 노름(주로 $L_\infty$, $L_2$)으로 제한되어, 변형이 "눈에 보이지 않을 정도"로 작게 유지됩니다.

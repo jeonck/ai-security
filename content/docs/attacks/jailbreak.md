@@ -5,6 +5,44 @@ weight: 5
 
 탈옥(Jailbreak)은 LLM에 내재된 안전 정책(safety policy)이나 가드레일(guardrail)을 우회하여, 모델이 본래라면 거부했을 응답(유해 콘텐츠 생성, 위험한 정보 제공, 정책 위반 행위 등)을 생성하도록 유도하는 공격입니다. "탈옥"이라는 표현 자체가 모델을 일종의 "감옥(jail)"에서 벗어나게 한다는 비유에서 왔으며, LLM이 대중에게 공개된 직후부터 가장 활발하게 연구되고 시도되어 온 공격 유형 중 하나입니다.
 
+```mermaid
+flowchart LR
+    subgraph TECH["탈옥 기법"]
+        T1["Role-play\n(DAN, 가상 시나리오)"]
+        T2["Encoding/Obfuscation\n(Base64, 다국어, 분리)"]
+        T3["Multi-turn Crescendo\n(점진적 escalation)"]
+        T4["Refusal Suppression\n(거부 표현 금지)"]
+    end
+
+    subgraph BYPASS["우회 대상"]
+        B1["RLHF 안전 정렬"]
+        B2["키워드/패턴 필터"]
+        B3["단일 턴 위험도 평가"]
+    end
+
+    subgraph IMPACT["피해 증폭"]
+        E1["유해 텍스트 생성"]
+        E2["Excessive Agency\n결합 시 실제 행동\n(이메일, 코드 실행, 결제)"]
+    end
+
+    T1 --> B1
+    T2 --> B2
+    T3 --> B3
+    T4 --> B1
+
+    B1 --> E1
+    B2 --> E1
+    B3 --> E1
+    E1 -.권한 결합.- E2
+
+    T1 -.수단으로 활용.- PI["프롬프트 인젝션"]
+
+    classDef jail fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class T1,T2,T3,T4,B1,B2,B3,E1 jail;
+    class E2,PI threat;
+```
+
 ## 탈옥과 프롬프트 인젝션의 차이
 
 탈옥과 [프롬프트 인젝션](../prompt-injection/)은 실무에서 자주 혼용되지만, 개념적으로는 구분되는 목표를 가집니다.

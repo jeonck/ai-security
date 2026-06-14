@@ -7,6 +7,39 @@ weight: 2
 
 OWASP LLM Top 10이 "어떤 취약점이 존재하는가"를 다룬다면, ATLAS는 **"공격자가 그 취약점을 어떻게, 어떤 순서로 악용하는가"**를 다룹니다. 즉 OWASP는 정적인 체크리스트에 가깝고, ATLAS는 공격자의 캠페인을 시간순으로 재구성하는 데 유용한 동적 모델입니다.
 
+```mermaid
+flowchart LR
+    subgraph TACTIC["ATLAS 전술 흐름 (공격자 캠페인)"]
+        T1["Reconnaissance\n/ Resource Development"]
+        T2["Initial Access"]
+        T3["ML Model Access"]
+        T4["Execution\n/ Persistence"]
+        T5["Exfiltration\n/ Impact"]
+    end
+
+    T1 --> T2 --> T3 --> T4 --> T5
+
+    subgraph LAYER["4-레이어 위협모델링"]
+        E["Environment\n웹/모바일, API 게이트웨이"]
+        P["AI Platform\n추론 서버, 에이전트 런타임, 도구"]
+        M["AI Model\n가중치, 아키텍처, 추론 로직"]
+        D["AI Data\n학습/파인튜닝/RAG 데이터"]
+    end
+
+    T1 -.매핑.- E
+    T2 -.매핑.- E
+    T3 -.매핑.- M
+    T4 -.매핑.- P
+    T5 -.매핑.- M
+    T5 -.매핑.- D
+    T1 -.매핑.- D
+
+    classDef tactic fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    classDef layer fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    class T1,T2,T3,T4,T5 tactic;
+    class E,P,M,D layer;
+```
+
 {{< callout type="info" >}}
 ATT&CK을 알고 있다면 ATLAS의 구조가 매우 친숙하게 느껴질 것입니다. 같은 "전술(Tactic) → 기법(Technique) → 절차(Procedure)" 계층 구조를 사용하며, 일부 전술 이름도 ATT&CK과 동일합니다(Reconnaissance, Initial Access, Exfiltration 등). 차이는 "ML 모델/데이터/파이프라인"이라는 새로운 자산 유형을 대상으로 한다는 점입니다.
 {{< /callout >}}

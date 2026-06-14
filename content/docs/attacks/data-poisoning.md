@@ -5,6 +5,43 @@ weight: 2
 
 적대적 예제가 "학습이 끝난 모델"을 추론(inference) 시점에 속이는 공격이라면, 데이터 포이즈닝(Data Poisoning)은 **학습(training) 시점**, 즉 모델이 만들어지는 과정 자체를 공격하는 기법입니다. 모델은 데이터로부터 패턴을 학습하기 때문에, 그 데이터에 악의적인 샘플을 섞어 넣을 수 있다면 모델의 동작을 근본적인 수준에서 조작할 수 있습니다.
 
+```mermaid
+flowchart LR
+    subgraph TYPE["오염 기법"]
+        P1["Label Flipping\n(레이블 뒤집기)"]
+        P2["Backdoor / Trojan\n(트리거 패턴)"]
+        P3["Clean-Label Poisoning\n(레이블은 정상, 입력만 조작)"]
+    end
+
+    subgraph SOURCE["오염 경로"]
+        S1["공급망\n(공개 데이터셋, 크라우드소싱)"]
+        S2["파인튜닝 데이터셋"]
+        S3["RAG 인덱스\n(검색 문서)"]
+    end
+
+    subgraph IMPACT["결과"]
+        I1["탐지 어려움\n(정상 테스트셋 통과)"]
+        I2["모델 백도어 /\n정렬(alignment) 왜곡"]
+        I3["추론 시점 인젝션\n(검색되는 즉시 발동)"]
+    end
+
+    P1 --> S1
+    P2 --> S1
+    P3 --> S1
+    S1 --> I1
+    S2 --> I2
+    S3 --> I3
+
+    P2 -.은밀함.- P3
+    S2 -.오염.- P1
+    S3 -.동일 메커니즘.- T1["프롬프트 인젝션\n(indirect)"]
+
+    classDef poison fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class P1,P2,P3,S1,S2,S3,I1,I2,I3 poison;
+    class T1 threat;
+```
+
 ## 학습 데이터 오염 공격의 종류
 
 ### Label Flipping (레이블 뒤집기)

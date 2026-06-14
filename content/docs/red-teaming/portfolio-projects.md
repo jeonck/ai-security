@@ -9,6 +9,40 @@ weight: 4
 세 프로젝트는 독립적으로도 의미가 있지만, 함께 진행하면 서로 보강됩니다. 프로젝트 1의 실습 결과가 프로젝트 3의 리포트 본문이 되고, 프로젝트 2의 위협모델이 프로젝트 3의 harm list 설계에 사용됩니다.
 {{< /callout >}}
 
+```mermaid
+flowchart LR
+    subgraph P1["프로젝트 1\nRAG 챗봇 v0 → v1"]
+        A1["v0 구현\n(취약한 기본 버전)"]
+        A2["4개 시나리오 적용\nA~D 공격"]
+        A3["v1 구현\n(완화책 적용)"]
+        A4["v0/v1\n성공률 비교표"]
+    end
+
+    subgraph P2["프로젝트 2\nAI 위협모델"]
+        B1["4-레이어 분해\nEnv/Platform/Model/Data"]
+        B2["ATLAS 전술 매핑"]
+        B3["위협모델 다이어그램"]
+    end
+
+    subgraph P3["프로젝트 3\nAI 레드팀 리포트"]
+        C1["Harm List +\n테스트 기록"]
+        C2["주요 발견사항\n재현→영향→완화"]
+        C3["권고사항\n(단기/중장기)"]
+    end
+
+    A1 --> A2 --> A3 --> A4
+    A4 --> C2
+    B1 --> B2 --> B3
+    B3 --> C1
+    A2 -.harm list 입력.- B2
+    C1 --> C2 --> C3
+
+    classDef proj fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef out fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class A1,A2,A3,B1,B2,B3 proj;
+    class A4,C1,C2,C3 out;
+```
+
 ## 프로젝트 1: 안전하지 않은 RAG 챗봇과 개선 버전 비교
 
 ### 목표

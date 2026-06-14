@@ -9,6 +9,37 @@ weight: 1
 이 페이지의 코드는 학습 목적의 의사 코드/축약 코드입니다. 실제 실행 시에는 라이브러리 버전에 따라 API가 달라질 수 있으니 공식 문서를 함께 참고하세요.
 {{< /callout >}}
 
+```mermaid
+flowchart LR
+    subgraph TOOLS["실습 도구"]
+        A1["대상 모델\n(SimpleCNN, MNIST/CIFAR-10)"]
+        A2["ART / Foolbox\nestimator 래핑"]
+        A3["공격 적용\nFGSM, PGD"]
+    end
+
+    subgraph EVAL["측정"]
+        B1["공격 성공률(ASR)\nepsilon별 비교"]
+        B2["원본 vs 적대적 예제\n시각적·신뢰도 비교"]
+        B3["Transferability\n타 모델 전이 여부"]
+    end
+
+    subgraph DEFENSE["방어 적용 후 재평가"]
+        C1["AdversarialTrainer\n적대적 훈련"]
+        C2["방어 전/후 ASR 비교\nclean vs robust accuracy"]
+    end
+
+    A1 --> A2 --> A3 --> B1
+    B1 --> B2
+    B1 --> B3
+    B1 --> C1 --> C2
+    C2 -.재시험.- A3
+
+    classDef tool fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class A1,A2,A3 tool;
+    class B1,B2,B3,C1,C2 threat;
+```
+
 ## 1. 도구 소개
 
 ### IBM Adversarial Robustness Toolbox (ART)

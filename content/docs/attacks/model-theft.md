@@ -5,6 +5,47 @@ weight: 3
 
 기업이 막대한 비용을 들여 학습시킨 모델은 그 자체로 핵심적인 지적 재산(IP)이자 경쟁력의 원천입니다. 모델 탈취 및 추출 공격은 공격자가 모델 자체나 그 학습 데이터에 직접 접근하지 않고도, **API를 통한 정상적인 질의(query)만으로** 모델의 기능, 동작, 심지어 학습 데이터의 일부까지 알아낼 수 있다는 사실에서 출발합니다.
 
+```mermaid
+flowchart LR
+    subgraph QUERY["API 질의 기반 공격"]
+        Q1["Model Extraction\n(입출력으로 surrogate 학습)"]
+        Q2["Membership Inference\n(학습 데이터 포함 여부 판별)"]
+        Q3["Model Inversion\n(학습 데이터 자체 복원)"]
+    end
+
+    subgraph LEAK["노출되는 자산"]
+        L1["모델 기능/동작\n(R&D 투자 무력화)"]
+        L2["개인정보\n(진료기록, PII)"]
+        L3["학습 데이터\n원문/이미지/코드"]
+    end
+
+    subgraph DEFENSE["방어 지점: API 계층"]
+        D1["레이트 리미팅"]
+        D2["출력 정보 최소화\n(logits 미제공)"]
+        D3["이상 탐지"]
+        D4["워터마킹"]
+    end
+
+    Q1 --> L1
+    Q2 --> L2
+    Q3 --> L3
+
+    L1 -.전이 공격 발판.- ADV["적대적 예제\n(transferability)"]
+    L2 -.규제 위반.- GOV["EU AI Act\n투명성·문서화"]
+
+    D1 -.완화.- Q1
+    D1 -.완화.- Q2
+    D2 -.완화.- Q1
+    D2 -.완화.- Q2
+    D3 -.완화.- Q1
+    D4 -.사후 입증.- Q1
+
+    classDef theft fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class Q1,Q2,Q3,L1,L2,L3,D1,D2,D3,D4 theft;
+    class ADV,GOV threat;
+```
+
 ## Model Extraction (모델 추출)
 
 Model extraction은 공격자가 타깃 모델에 다수의 입력을 질의하고 그 출력을 관찰하여, **타깃 모델과 유사하게 동작하는 대체 모델(surrogate model)을 학습**시키는 공격입니다.

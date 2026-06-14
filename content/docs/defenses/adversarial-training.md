@@ -9,6 +9,40 @@ weight: 1
 적대적 훈련은 "최선의 알려진 일반적 방어"로 평가받지만, 동시에 정확도 저하, 훈련 비용 증가, 특정 공격에 대한 과적합(overfitting to a threat model) 등의 한계를 가지고 있습니다. 이 페이지에서는 핵심 알고리즘과 트레이드오프를 함께 다룹니다.
 {{< /callout >}}
 
+```mermaid
+flowchart LR
+    subgraph TRAIN["적대적 훈련 메커니즘"]
+        P1["Min-Max 최적화\n내부: 최악의 perturbation 탐색\n외부: 그 입력에서도 손실 최소화"]
+        P2["PGD 기반 훈련\n(Madry et al.)\nK-step 적대적 예제 생성"]
+        P3["TRADES\nclean loss + KL 정규화"]
+        P4["Certified Defenses\nRandomized Smoothing, IBP"]
+    end
+
+    subgraph TRADEOFF["트레이드오프 & 한계"]
+        R1["Robust Accuracy ↑"]
+        R2["Clean Accuracy ↓"]
+        R3["훈련 비용 K배 증가"]
+        R4["공정성(Fairness) 이슈\n클래스별 불균등 영향"]
+        R5["적응형 공격에\n재평가 필요"]
+    end
+
+    P1 --> P2 --> P3
+    P2 --> P4
+
+    P2 -.대응.- T1["적대적 예제\n(Adversarial Examples)"]
+    P1 --> R1
+    P1 --> R2
+    P2 --> R3
+    R2 -.유사한 트레이드오프.- R4
+    R4 -.유사 패턴.- T2["차분 프라이버시\n프라이버시-정확도 트레이드오프"]
+    R1 -.가정 깨짐 주의.- R5
+
+    classDef defense fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class P1,P2,P3,P4,R1,R2,R3,R5 defense;
+    class R4,T1,T2 threat;
+```
+
 ## 1. 기본 개념: Min-Max 최적화
 
 적대적 훈련은 일반적인 경험적 위험 최소화(Empirical Risk Minimization, ERM) 대신, 다음과 같은 **min-max(미니맥스) 최적화** 문제로 정식화됩니다.

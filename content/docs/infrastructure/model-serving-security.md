@@ -5,6 +5,45 @@ weight: 2
 
 학습이 끝난 모델은 결국 **추론 엔드포인트(inference endpoint)** 형태로 외부 또는 내부 사용자에게 노출됩니다. 이 시점부터 모델은 "ML 아티팩트"가 아니라 "API 서비스"이며, 전통적인 API 보안 원칙(인증/인가, rate limiting, 입력 검증)이 그대로 적용됩니다. 동시에 모델 고유의 자산(가중치, 레지스트리)과 모델 고유의 위협(모델 추출, 모델 DoS)에 대한 추가 통제가 필요합니다.
 
+```mermaid
+flowchart LR
+    subgraph EDGE["진입 경계 통제"]
+        G1["인증/인가\n(API 키, mTLS)"]
+        G2["Rate Limiting\n(사용자/비용 단위)"]
+        G3["API 게이트웨이\n(스키마 검증, 로깅)"]
+    end
+
+    subgraph CORE["서빙 코어 자산"]
+        S1["모델 레지스트리\n(권한 분리, 불변성)"]
+        S2["가중치 파일\n(암호화 + 서명 검증)"]
+        S3["추론 엔드포인트\n(입출력 검증)"]
+    end
+
+    subgraph THREAT["대응 위협"]
+        R1["모델 추출\n(무차별 질의)"]
+        R2["미검증 모델\n프로덕션 승격"]
+        R3["백도어 가중치\n(저장소/전송 변조)"]
+        R4["모델 DoS\n(비용 폭탄, LLM04)"]
+    end
+
+    G1 --> G3
+    G2 --> G3
+    G3 --> S3
+    S1 --> S2 --> S3
+
+    G2 -.방어.- R1
+    S1 -.방어.- R2
+    S2 -.방어.- R3
+    G2 -.방어.- R4
+    G3 -.쿼터/타임아웃.- R4
+
+    classDef edge fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef core fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class G1,G2,G3,S1,S2,S3 edge;
+    class R1,R2,R3,R4 threat;
+```
+
 ## 모델 서빙 엔드포인트 보호
 
 ### 인증 및 인가

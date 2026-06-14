@@ -5,6 +5,35 @@ weight: 3
 
 **NIST AI Risk Management Framework(AI RMF)**는 미국 국립표준기술연구소(NIST)가 발표한 AI 위험관리 프레임워크입니다. OWASP나 ATLAS가 "무엇이 취약하고 공격자가 어떻게 움직이는가"라는 보안 중심 시각을 제공하는 반면, NIST AI RMF는 **"조직이 AI 위험을 어떤 절차로 식별·평가·대응·관리해야 하는가"**라는 거버넌스 프로세스를 제시합니다.
 
+```mermaid
+flowchart LR
+    subgraph RMF["NIST AI RMF 4단계 순환"]
+        G["Govern\n정책/역할/위험허용수준"]
+        Ma["Map\n시스템 맥락·위험 식별"]
+        Me["Measure\n평가지표·레드팀 결과 측정"]
+        Mn["Manage\n대응·중단 체계"]
+    end
+
+    G --> Ma --> Me --> Mn --> G
+
+    subgraph EXT["연계되는 다른 프레임워크"]
+        X1["MITRE ATLAS\n4-레이어 위협 매핑"]
+        X2["OWASP LLM Top 10\n4계층 분류"]
+        X3["GenAI 프로파일\nHallucination/Privacy 등"]
+        X4["EU AI Act\n법적 의무 체크"]
+    end
+
+    X1 -.입력.- Ma
+    X2 -.측정항목 설계.- Me
+    X3 -.위험범주.- Me
+    Mn -.대응 근거.- X4
+
+    classDef rmf fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef ext fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class G,Ma,Me,Mn rmf;
+    class X1,X2,X3,X4 ext;
+```
+
 {{< callout type="info" >}}
 NIST AI RMF는 보안에만 한정되지 않습니다. 공정성(fairness), 안전성(safety), 신뢰성(reliability), 프라이버시 등 "신뢰할 수 있는 AI(Trustworthy AI)"의 여러 속성을 포괄합니다. 이 페이지에서는 보안/위험관리 관점에서 핵심만 추립니다.
 {{< /callout >}}

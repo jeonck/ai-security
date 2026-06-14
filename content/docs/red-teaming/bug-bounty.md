@@ -9,6 +9,41 @@ weight: 3
 버그바운티는 반드시 **공식적으로 등록된 프로그램의 범위(scope) 내에서만** 진행해야 합니다. 범위 밖의 시스템이나 명시적으로 금지된 기법(예: 자동화된 대량 스캔, 소셜 엔지니어링)을 사용하면 법적 문제로 이어질 수 있습니다. 항상 프로그램의 정책 문서를 먼저 읽으세요.
 {{< /callout >}}
 
+```mermaid
+flowchart LR
+    subgraph SCOPE["프로그램 범위 확인"]
+        S1["정책 문서 검토\n범위/금지행위/제출방식"]
+    end
+
+    subgraph FIND["취약점 유형"]
+        V1["프롬프트 인젝션"]
+        V2["탈옥(Jailbreak)"]
+        V3["데이터 유출\n(시스템 프롬프트/RAG)"]
+        V4["에이전트 도구\n권한 상승"]
+        V5["모델 추출 /\nRate limit 우회"]
+    end
+
+    subgraph REPORT["리포트 작성"]
+        R1["재현 단계 + 재현율\n(N회 중 성공 횟수)"]
+        R2["영향(Impact)\n비즈니스 관점 설명"]
+        R3["완화 제안\n+ 책임 있는 공개"]
+    end
+
+    S1 --> V1 & V2 & V3 & V4 & V5
+    V1 --> R1
+    V2 --> R1
+    V3 --> R1
+    V4 --> R1
+    V5 --> R1
+    R1 --> R2 --> R3
+    R3 -.연습.- LRT["자체 실습\n(LLM·에이전트 레드티밍)"]
+
+    classDef scope fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class S1,R1,R2,R3,LRT scope;
+    class V1,V2,V3,V4,V5 threat;
+```
+
 ## 1. AI 제품 버그바운티의 특징
 
 ### 전통적인 웹 버그바운티와의 차이

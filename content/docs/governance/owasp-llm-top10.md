@@ -5,6 +5,38 @@ weight: 1
 
 OWASP(Open Worldwide Application Security Project)의 **LLM Applications Top 10**은 LLM 기반 애플리케이션에서 가장 빈번하게 발생하는 취약점 10가지를 정리한 목록입니다. 전통적인 OWASP Top 10(웹 애플리케이션)이 SQL 인젝션, XSS 같은 항목을 다루듯, LLM Top 10은 프롬프트 인젝션, 과도한 권한 위임(Excessive Agency) 같은 LLM 특화 취약점을 다룹니다.
 
+```mermaid
+flowchart LR
+    subgraph LAYER["4계층 재분류 프레임 (데이터/제어 흐름)"]
+        L1["① 프롬프트 계층\n입력이 모델에 들어가기 전/직후"]
+        L2["② 출력 계층\n모델 생성 결과 처리"]
+        L3["③ 툴 실행 계층\n에이전트의 행동 실행"]
+        L4["④ 권한 계층\n구성요소별 접근 범위"]
+    end
+
+    L1 --> L2 --> L3 --> L4
+
+    subgraph TOP10["OWASP LLM Top 10"]
+        O1["LLM01 Prompt Injection\nLLM07 System Prompt Leakage"]
+        O2["LLM05 Improper Output Handling\nLLM02 Sensitive Info Disclosure\nLLM09 Misinformation"]
+        O3["LLM06 Excessive Agency\nLLM10 Unbounded Consumption"]
+        O4["LLM03 Supply Chain\nLLM08 Vector/Embedding Weaknesses"]
+    end
+
+    L1 -.해당.- O1
+    L2 -.해당.- O2
+    L3 -.해당.- O3
+    L4 -.해당.- O4
+
+    L4 -.증폭.- L1
+    L4 -.증폭.- L3
+
+    classDef layer fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef item fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class L1,L2,L3,L4 layer;
+    class O1,O2,O3,O4 item;
+```
+
 {{< callout type="info" >}}
 OWASP LLM Top 10은 버전이 계속 업데이트됩니다(2023년 초안 → 2025년 버전 등). 항목 번호와 명칭이 버전에 따라 조금씩 바뀔 수 있으니, **항목명을 외우는 것보다 "이 위험이 어떤 계층에서 발생하는가"를 이해하는 것**이 훨씬 중요합니다. 이 페이지의 후반부에서 그 재분류 프레임을 다룹니다.
 {{< /callout >}}

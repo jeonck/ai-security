@@ -5,6 +5,39 @@ weight: 2
 
 이미지 분류기를 대상으로 [ART·Foolbox 실습](../art-foolbox-practice/)을 했다면, 이제 LLM과 에이전트 시스템으로 넘어갑니다. LLM 레드티밍은 "전통적인 모의해킹(pentest)"과는 결이 다릅니다 — 시스템에 명확한 버그가 있어서 그것을 찾는 것이 아니라, 모델이 **본질적으로 확률적이고 지시를 따르도록 학습되었기 때문에 생기는 위험**을 드러내는 작업입니다.
 
+```mermaid
+flowchart TB
+    subgraph DESIGN["사전 설계"]
+        D1["Who: 테스터/관점\n(공격자·평가자 등)"]
+        D2["What: Harm List\n(유해 콘텐츠·탈옥·정보유출·오남용 등)"]
+        D3["How: 기록 형식\n(입력/기대/실제/심각도/재현율)"]
+    end
+
+    subgraph TEST["테스트 진행"]
+        T1["1단계: 개방형 탐색\n자유로운 프롬프트 시도"]
+        T2["2단계: 가이드형 재시험\n재현·변형·완화 후 재검증"]
+        T3["4대 시나리오\nA.RAG 인젝션 B.프롬프트 유출\nC.민감정보 회수 D.출력 후처리"]
+    end
+
+    subgraph OUTCOME["기록과 완화"]
+        O1["기록표 작성\n성공률·심각도"]
+        O2["완화책 적용\n(프롬프트/필터/권한 분리)"]
+    end
+
+    D1 --> T1
+    D2 --> T1
+    D3 --> T1
+    T1 --> T2
+    T2 --> T3
+    T3 --> O1 --> O2
+    O2 -.재시험.- T2
+
+    classDef design fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class D1,D2,D3 design;
+    class T1,T2,T3,O1,O2 threat;
+```
+
 ## 1. AI 레드팀의 정의 (Microsoft AI Red Team 가이드 기반)
 
 Microsoft의 AI 레드팀 가이드는 AI 레드티밍을 다음과 같이 정의합니다.
