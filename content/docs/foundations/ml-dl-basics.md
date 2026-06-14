@@ -5,6 +5,43 @@ weight: 4
 
 AI 보안을 다루기 위해서는 보안 지식 못지않게 **머신러닝/딥러닝이 실제로 어떻게 동작하는지**에 대한 이해가 필요합니다. 모델을 "입력을 넣으면 답이 나오는 블랙박스"로만 이해하면, 공격이 "왜" 작동하는지, 방어가 "왜" 효과적인지(혹은 왜 한계가 있는지)를 판단할 수 없습니다.
 
+```mermaid
+flowchart LR
+    subgraph DATA["데이터 & 학습"]
+        M1["학습/검증/테스트\n데이터 분리"]
+        M2["손실 함수\n(Loss Function)"]
+        M3["경사 하강법\n(Gradient Descent)\n+ 역전파"]
+        M4["과적합 vs 일반화\n(Overfitting/Generalization)"]
+    end
+
+    subgraph MODEL["모델 구조"]
+        M5["신경망\n입력층-은닉층-출력층\n가중치 + 활성화함수"]
+        M6["트랜스포머/LLM\n토큰화 + 어텐션\n(컨텍스트 윈도우)"]
+        M7["Fine-tuning\nvs RAG vs Prompting"]
+    end
+
+    subgraph THREAT["관련 보안 위협"]
+        T1["데이터 포이즈닝\n/ 멤버십 추론"]
+        T2["적대적 예제\n(Adversarial Examples)"]
+        T3["프롬프트 인젝션"]
+        T4["백도어 /\n파인튜닝 데이터 오염"]
+    end
+
+    M1 --> M2 --> M3 --> M4
+    M4 --> M5 --> M6 --> M7
+
+    M1 -.데이터 누수.- T1
+    M4 -.기억(memorization).- T1
+    M3 -.그래디언트 악용.- T2
+    M6 -.컨텍스트 구분 불가.- T3
+    M7 -.오염된 데이터.- T4
+
+    classDef ml fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef threat fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class M1,M2,M3,M4,M5,M6,M7 ml;
+    class T1,T2,T3,T4 threat;
+```
+
 ## 머신러닝의 세 가지 기본 패러다임
 
 ### 지도학습 (Supervised Learning)

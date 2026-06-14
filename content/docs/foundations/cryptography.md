@@ -5,6 +5,46 @@ weight: 3
 
 암호학은 데이터의 기밀성(confidentiality), 무결성(integrity), 인증(authentication), 부인 방지(non-repudiation)를 보장하기 위한 수학적 도구입니다. AI 시스템에서는 모델 가중치, 학습 데이터셋, 사용자 입출력, 모델 간 통신 등 보호해야 할 자산이 매우 많기 때문에 암호학의 기본 개념을 정확히 이해하는 것이 중요합니다.
 
+```mermaid
+flowchart LR
+    subgraph CRYPTO["암호학 기본 도구"]
+        C1["대칭 암호화\n(AES-256)"]
+        C2["비대칭 암호화\n(RSA, ECC) + 하이브리드"]
+        C3["해시 함수\n(SHA-256, SHA-3)"]
+        C4["전자서명\n(해시 + 개인키)"]
+        C5["TLS / mTLS\n(핸드셰이크)"]
+        C6["키 관리\nKMS / 봉투암호화"]
+    end
+
+    subgraph APP["AI 보안 응용"]
+        D1["모델 가중치·데이터셋\n암호화 (저장/전송)"]
+        D2["TLS 키교환·모델 서빙\n인프라 간 mTLS"]
+        D3["모델 체크포인트\n무결성 검증"]
+        D4["모델 서명 & 콘텐츠 출처 증명\n(Sigstore, C2PA)"]
+        D5["키 순환·최소권한\n중앙 키 관리"]
+        D6["동형암호(HE)\n추론 중 프라이버시 보호"]
+    end
+
+    C1 --> D1
+    C2 --> D2
+    C3 --> D3
+    C4 --> D4
+    C6 --> D5
+    C2 -.확장.- D6
+
+    C2 -.세션키 교환.- C1
+    C3 -.해시.- C4
+    C5 -.활용.- C2
+    C5 -.활용.- C1
+    C6 -.보호.- C1
+    C6 -.보호.- C2
+
+    classDef crypto fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef app fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class C1,C2,C3,C4,C5,C6 crypto;
+    class D1,D2,D3,D4,D5,D6 app;
+```
+
 ## 대칭 암호화 (Symmetric Encryption)
 
 - 암호화와 복호화에 **동일한 키**를 사용.
