@@ -5,6 +5,45 @@ weight: 2
 
 대부분의 AI 애플리케이션은 결국 웹 애플리케이션입니다 — 사용자는 브라우저나 모바일 앱을 통해 HTTP API를 호출하고, 그 뒤에서 LLM이나 다른 모델이 응답을 생성합니다. 따라서 전통적인 웹 보안 취약점은 AI 애플리케이션에도 동일하게(혹은 더 심각하게) 적용됩니다.
 
+```mermaid
+flowchart LR
+    subgraph WEB["전통적 웹 보안 (OWASP Top 10)"]
+        A1["Injection\n(SQL/명령 인젝션)"]
+        A2["Broken Authentication\n(인증 취약점)"]
+        A3["Broken Access Control\n(접근 제어 취약점)"]
+        A4["SSRF"]
+        A5["Security Misconfiguration"]
+        A6["Vulnerable Components"]
+        A7["출력 인코딩 미흡\n→ XSS"]
+        A8["Rate Limiting 부재"]
+    end
+
+    subgraph AI["AI/LLM 애플리케이션 보안"]
+        B1["프롬프트 인젝션\n(데이터·명령 혼재)"]
+        B2["API 키 유출\n→ 모델 무단 사용"]
+        B3["RAG 권한 미검증\n과도한 에이전트 권한"]
+        B4["에이전트 도구 호출로\n내부 자원/메타데이터 접근"]
+        B5["모델 가중치·학습데이터\n노출"]
+        B6["Pickle 역직렬화\n→ 임의 코드 실행"]
+        B7["LLM 출력 그대로 렌더링\n→ 코드 실행/XSS"]
+        B8["모델 추출, 비용 폭탄\n(DoS)"]
+    end
+
+    A1 --> B1
+    A2 --> B2
+    A3 --> B3
+    A4 --> B4
+    A5 --> B5
+    A6 --> B6
+    A7 --> B7
+    A8 --> B8
+
+    classDef web fill:#e7f1ff,stroke:#3b82f6,color:#1e3a8a;
+    classDef ai fill:#fff3cd,stroke:#d39e00,color:#664d03;
+    class A1,A2,A3,A4,A5,A6,A7,A8 web;
+    class B1,B2,B3,B4,B5,B6,B7,B8 ai;
+```
+
 ## OWASP Top 10 핵심 항목
 
 [OWASP Top 10](https://owasp.org/www-project-top-ten/)은 가장 널리 알려진 웹 애플리케이션 보안 위험 목록입니다. AI 보안을 공부하기 전에 반드시 이해해야 할 핵심 항목들을 정리합니다.
