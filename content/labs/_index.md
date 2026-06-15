@@ -39,6 +39,23 @@ source ai-sec-lab/bin/activate   # Windows: ai-sec-lab\Scripts\activate
   {{< card link="lab7-supply-chain-check" title="Lab 7: AI 모델 공급망 보안 점검" subtitle="pip-audit·SBOM·체크섬으로 모델의 의존성과 출처를 점검하고 모델 카드를 작성합니다" >}}
 {{< /cards >}}
 
+## 12주 캡스톤 프로젝트
+
+Lab 1~7이 개별 주제를 다루는 독립 실습이라면, Lab 8~10은 이를 하나로 묶는 **12주(3개월) 캡스톤 프로젝트**입니다. 사내 문서형 RAG 챗봇을 대상으로 "취약한 버전 → 개선된 버전 → 레드팀 리포트 → 보안 설계 문서"의 4가지 최종 산출물을 단계적으로 완성합니다.
+
+| 최종 산출물 | 내용 | 만드는 곳 |
+|---|---|---|
+| ① 취약한 AI 앱 | 방어 통제 없이 만든 RAG 챗봇과 OWASP 기준 1차 공격 결과 | [Lab 8](lab8-capstone-vulnerable-rag/) (1~4주) |
+| ② 개선된 AI 앱 | 프롬프트·출력·권한 통제와 공급망 점검을 적용한 v2, 공격 재검증 결과 | [Lab 9](lab9-capstone-controls-supplychain/) (5~8주) |
+| ③ AI 레드팀 리포트 | 공격 시나리오, 결과, 재현 절차, 완화책을 정리한 정식 레드팀 라운드 | [Lab 10](lab10-capstone-threatmodel-redteam-ir/) 10주차 |
+| ④ AI 보안 설계 문서 | 위협모델, 리스크 등록부, 운영 통제, 사고대응 플레이북 | [Lab 10](lab10-capstone-threatmodel-redteam-ir/) 9·11·12주차 |
+
+{{< cards >}}
+  {{< card link="lab8-capstone-vulnerable-rag" title="Lab 8: 캡스톤 1개월차 — 취약한 RAG 챗봇 구축과 1차 공격" subtitle="RAG 챗봇 아키텍처를 설계·구현하고 OWASP LLM Top 10 기준으로 1차 공격을 수행해 위험 표면을 정리합니다" >}}
+  {{< card link="lab9-capstone-controls-supplychain" title="Lab 9: 캡스톤 2개월차 — 보안 통제 설계와 공급망 보안 점검" subtitle="입력·모델·출력·툴 실행 계층에 통제를 설계하고 SAIF·공급망 점검을 적용한 개선 버전을 재배포·재검증합니다" >}}
+  {{< card link="lab10-capstone-threatmodel-redteam-ir" title="Lab 10: 캡스톤 3개월차 — 위협모델링·레드팀 리포트·사고대응" subtitle="MITRE ATLAS 위협모델링, 정식 레드팀 라운드, NIST 기준 리스크 등록부와 사고대응 플레이북으로 캡스톤을 완성합니다" >}}
+{{< /cards >}}
+
 {{< callout type="warning" >}}
 이 섹션의 모든 실습은 **본인이 소유하거나 명시적으로 권한을 부여받은 모델/시스템**에서만 수행하세요. 타인의 서비스, 공개 API, 프로덕션 시스템에 대한 무단 공격 시도는 서비스 약관 위반 및 법적 책임을 수반할 수 있습니다. 모든 실습은 로컬 환경 또는 본인이 통제하는 테스트 환경에서 수행하는 것을 전제로 합니다.
 {{< /callout >}}
