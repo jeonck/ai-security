@@ -143,15 +143,31 @@ AI의 역량(Capability)이 강화됨에 따라, 우리 사회가 얻을 수 있
 3. **인공 초지능 (ASI) 단계**
    * **주요 혜택**: 인류의 가능성을 완전히 확장(Expanding possibilities for Humanity). 우리가 현재 과학 수준으로는 그 존재조차 모르는 우주의 신비나 새로운 물리 법칙을 규명하고, 상상할 수 없는 차원의 삶의 질 개선을 실현하는 단계.
 
-```
-       ▲  [위험 통제 필요]                     [혜택 극대화 지향] ▲
-       │                                                          │
-       │  ASI : 인류 멸종, 통제 상실         ASI : 인류 미지의 가능성 확장 │
-       │  AGI : 대규모 노동/경제 혼란        AGI : 암 정복, 저온 핵융합 상용  │
-   역량│  현대 AI: 해킹, 편향, 정서적 고립   현대 AI: 생산성 증대, AlphaFold │역량
-   강화│                                                          │강화
-       └──────────────────────────────────────────────────────────┘
-                         [AI 거버넌스의 본질: 균형 잡기]
+```mermaid
+flowchart TD
+    subgraph Balance["⚖️ AI 거버넌스의 본질: 균형 잡기"]
+        direction TB
+        
+        subgraph Risks["🚨 위험 통제 필요 (AI Risks)"]
+            direction BT
+            R1["현대 AI <br/> (해킹, 편향, 정서적 고립)"] -->|역량 강화| R2["AGI <br/> (대규모 노동/경제 혼란)"]
+            R2 -->|역량 강화| R3["ASI <br/> (인류 멸종, 통제 상실)"]
+        end
+        
+        subgraph Benefits["✨ 혜택 극대화 지향 (AI Benefits)"]
+            direction BT
+            B1["현대 AI <br/> (생산성 증대, AlphaFold)"] -->|역량 강화| B2["AGI <br/> (암 정복, 저온 핵융합 상용)"]
+            B2 -->|역량 강화| B3["ASI <br/> (인류 미지의 가능성 확장)"]
+        end
+    end
+    
+    classDef riskClass fill:#ffe6e6,stroke:#ff9999,stroke-width:2px;
+    classDef benefitClass fill:#e6f2ff,stroke:#99ccff,stroke-width:2px;
+    classDef balanceClass fill:#fff,stroke:#333,stroke-width:2px;
+    
+    class Risks,R1,R2,R3 riskClass;
+    class Benefits,B1,B2,B3 benefitClass;
+    class Balance balanceClass;
 ```
 
 ---
