@@ -9,7 +9,7 @@ sidebar:
 
 ## AI 보안, 어떻게 공부해야 할까
 
-AI 보안은 크게 **다섯 개 지식 축**과 **하나의 실전 축**으로 나눌 수 있습니다.
+AI 보안은 크게 **여섯 개 지식 축**과 **하나의 실전 축**으로 나눌 수 있습니다.
 
 1. **[기반 지식](foundations)** — 일반 보안(네트워크·웹·암호학)과 ML/딥러닝 기초를 함께 다집니다. 둘 중 하나만 알면 AI 보안을 이해할 때 반쪽 이해에 그칩니다.
 2. **[공격 기법](attacks)** — 적대적 예제, 데이터 포이즈닝, 모델 탈취는 전통 ML 시대부터의 공격이고, 프롬프트 인젝션·탈옥은 LLM 시대에 새로 부각된 영역입니다.
@@ -17,6 +17,7 @@ AI 보안은 크게 **다섯 개 지식 축**과 **하나의 실전 축**으로 
 4. **[인프라·공급망 보안](infrastructure)** — MLOps 파이프라인, 모델 서빙, 의존성·공급망 리스크를 다룹니다.
 5. **[거버넌스·리스크 관리](governance)** — OWASP LLM Top 10, MITRE ATLAS, NIST AI RMF, EU AI Act 등 규제·표준 흐름을 이해합니다.
 6. **[레드팀·실전 경험](red-teaming)** — ART/Foolbox 실습, AI 레드티밍, 버그바운티, 12주 로드맵으로 지식을 체화합니다.
+7. **[가드레일·평가](guardrails)** — RAG, 입력 가드레일, 환각 탐지, 평가 지표, NeMo·Guardrails AI·Bedrock까지 **운영 단계의 방어 계층**을 다룹니다.
 
 {{< callout type="info" >}}
 **추천 학습 순서: ② → ⑤ → ④ → ③ → ① → ⑥**
@@ -48,6 +49,11 @@ Microsoft도 먼저 수동 레드팀으로 위험 표면을 드러낸 뒤 측정
 
 자세한 실습 가이드는 [레드팀·실전 경험](red-teaming) 섹션을 참고하세요.
 
+{{< callout type="info" >}}
+공격과 위험을 파악했다면, 그것을 **운영에서 실제로 막는 계층**이 [⑦ 가드레일·평가](guardrails)입니다.
+입력 가드레일, 환각 탐지, 평가 지표는 5~8주차의 통제 설계와 11~12주차의 운영 통제 문서화에 그대로 이어집니다.
+{{< /callout >}}
+
 ## 전체 섹션
 
 {{< cards >}}
@@ -57,4 +63,5 @@ Microsoft도 먼저 수동 레드팀으로 위험 표면을 드러낸 뒤 측정
   {{< card link="infrastructure" title="④ 인프라·공급망 보안" subtitle="MLOps, 모델 서빙, 공급망 리스크" icon="server" >}}
   {{< card link="governance" title="⑤ 거버넌스·리스크 관리" subtitle="OWASP, MITRE ATLAS, NIST AI RMF, EU AI Act" icon="scale" >}}
   {{< card link="red-teaming" title="⑥ 레드팀·실전 경험" subtitle="ART/Foolbox, AI 레드티밍, 버그바운티, 12주 로드맵" icon="beaker" >}}
+  {{< card link="guardrails" title="⑦ 가드레일·평가" subtitle="RAG·벡터스토어, 입력 가드레일, 환각 탐지, Evaluators, NeMo·Bedrock" icon="shield-check" >}}
 {{< /cards >}}

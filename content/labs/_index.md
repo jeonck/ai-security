@@ -37,6 +37,7 @@ source ai-sec-lab/bin/activate   # Windows: ai-sec-lab\Scripts\activate
   {{< card link="lab5-data-poisoning-attack" title="Lab 5: 데이터 포이즈닝 공격 실습" subtitle="scikit-learn 분류 모델에 label-flipping과 백도어 트리거 포이즌을 주입하고 정확도/ASR을 측정합니다" >}}
   {{< card link="lab6-adversarial-training-defense" title="Lab 6: 적대적 훈련으로 모델 방어하기" subtitle="FGSM/PGD에 대한 robust accuracy를 방어 적용 전/후로 비교하고 정확도-강건성 트레이드오프를 관찰합니다" >}}
   {{< card link="lab7-supply-chain-check" title="Lab 7: AI 모델 공급망 보안 점검" subtitle="pip-audit·SBOM·체크섬으로 모델의 의존성과 출처를 점검하고 모델 카드를 작성합니다" >}}
+  {{< card link="lab11-guardrails-pipeline" title="Lab 11: 가드레일 파이프라인 실습" subtitle="입력 가드레일·환각 탐지·평가를 한 파이프라인으로 조립하고 탐지율/오탐률을 측정합니다" >}}
 {{< /cards >}}
 
 ## 12주 캡스톤 프로젝트

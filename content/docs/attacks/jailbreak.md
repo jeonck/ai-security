@@ -130,3 +130,7 @@ OWASP에서 다루는 "Excessive Agency"는 LLM 기반 에이전트가 필요 �
 탈옥 기법은 끊임없이 새로운 변형이 등장하기 때문에, 정적인 체크리스트만으로는 대응이 어렵습니다. [LLM 레드티밍](../../red-teaming/llm-red-teaming/) 페이지에서는 알려진 탈옥 패턴(role-play, encoding, multi-turn escalation 등)을 체계적으로 시도하여 모델/애플리케이션의 방어 수준을 정량적으로 평가하는 방법론을 다룹니다. 정기적인 레드티밍은 새로운 탈옥 기법이 등장했을 때 이를 조직의 방어 체계에 빠르게 반영하는 피드백 루프의 핵심입니다.
 
 또한 [OWASP LLM Top 10](../../governance/owasp-llm-top10/)은 탈옥과 밀접하게 관련된 LLM01(Prompt Injection)뿐 아니라, excessive agency, sensitive information disclosure 등 탈옥의 결과로 이어질 수 있는 여러 위협을 함께 다루고 있어, 탈옥을 "단일 취약점"이 아닌 "여러 취약점이 결합되어 발생하는 위협 체인"의 관점에서 이해하는 데 도움이 됩니다.
+
+## 방어 계층으로의 연결
+
+탈옥을 운영 단계에서 막는 수단은 [⑦ 가드레일·평가](../../guardrails/) 섹션에서 다룹니다. 특히 [입력 가드레일](../../guardrails/input-guardrails/)의 탈옥 분류기(Prompt Guard 2)와 유해성 모더레이션 모델(Llama Guard 4, ShieldGemma)이 이 공격에 직접 대응하는 통제입니다.

@@ -124,7 +124,7 @@ model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-Guard-3-8B")
 
 **GitHub**: https://github.com/meta-llama/PurpleLlama
 
-Llama Guard와 같은 가드레일 모델은 [LLM·에이전트 레드티밍](/docs/red-teaming/llm-red-teaming)에서 발견한 위험을 **운영 단계에서 차단하는 방어 계층**으로 활용할 수 있습니다 — 레드팀(공격 탐색)과 가드레일(운영 방어)은 한 쌍으로 묶어 생각하는 것이 좋습니다.
+Llama Guard와 같은 가드레일 모델은 [LLM·에이전트 레드티밍](/docs/red-teaming/llm-red-teaming)에서 발견한 위험을 **운영 단계에서 차단하는 방어 계층**으로 활용할 수 있습니다 — 레드팀(공격 탐색)과 가드레일(운영 방어)은 한 쌍으로 묶어 생각하는 것이 좋습니다. 가드레일 계층의 설계·구현은 [⑦ 가드레일·평가](/docs/guardrails/) 섹션에서 자세히 다룹니다.
 
 ## 도구 선택 가이드
 
