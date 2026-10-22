@@ -111,6 +111,6 @@ OWASP는 LLM01 (Prompt Injection)을 "현재 완벽한 해결책이 존재하지
 
 프롬프트 인젝션은 OWASP가 체계적으로 정리한 LLM 애플리케이션 보안 위협의 대표 사례이므로, [OWASP LLM Top 10](../../governance/owasp-llm-top10/)의 LLM01 항목과 관련 권고사항(입력 검증, 권한 분리, 사람의 확인 단계 도입 등)을 이해하는 것이 방어의 기본 틀이 됩니다.
 
-운영 중인 애플리케이션에서 실제로 이를 차단하는 계층은 [⑦ 가드레일·평가](../../guardrails/)입니다. 입력 앞단의 인젝션 분류기([입력 가드레일](../../guardrails/input-guardrails/)), 검색 결과에 적용하는 retrieval rail([RAG와 벡터 스토어](../../guardrails/rag-vector-store/)), 출력 필터링이 각각 다른 인젝션 경로에 대응합니다. 다만 이들은 모두 확률적 탐지이므로, **안전한 출력 처리와 최소 권한 같은 결정론적 통제를 대체하지 않습니다.**
+운영 중인 애플리케이션에서 실제로 이를 차단하는 계층은 [⑦ 가드레일·평가](../../guardrails/)입니다. 입력 앞단의 인젝션 분류기([입력 가드레일](../../guardrails/input-guardrails/)), 검색 결과에 적용하는 retrieval rail([RAG와 벡터 스토어](../../guardrails/rag-vector-store/)), 출력 필터링이 각각 다른 인젝션 경로에 대응합니다. 다만 이들은 모두 확률적 탐지이므로, **안전한 출력 처리와 최소 권한 같은 결정론적 통제를 대체하지 않습니다.** 이 원칙이 실제 사건에서 어떻게 확인됐는지는 [⑧ 사례 기술 분석](../../incidents/zero-click-exfiltration/)의 EchoLeak·ShadowLeak·GrafanaGhost 분석을 참고하세요 — 세 사건 모두 인젝션 분류기가 **있는 상태에서** 성립했습니다.
 
 또한 프롬프트 인젝션은 그 특성상 "이론적으로 막혔는지"를 코드 리뷰만으로 확인하기 어렵고, 실제로 다양한 인젝션 페이로드를 시도해보는 **실전적 테스트**가 필수적입니다. [LLM 레드티밍](../../red-teaming/llm-red-teaming/) 페이지에서는 direct/indirect prompt injection 시나리오를 실제로 구성하고, 시스템 프롬프트 유출이나 다운스트림 인젝션이 가능한지 점검하는 방법론을 다룹니다.
