@@ -1,4 +1,4 @@
-baseURL = 'https://jeonck.github.io/ai-security/'
+baseURL = 'https://ai-security.metacog.co.kr/'
 title = 'AI Security'
 theme = 'hextra'
 locale = 'ko-KR'
