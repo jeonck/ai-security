@@ -48,7 +48,7 @@ flowchart LR
 {{< cards >}}
   {{< card link="zero-click-exfiltration" title="계열 A: 제로클릭 데이터 유출" subtitle="EchoLeak → AgentFlayer·ShadowLeak → GrafanaGhost — 같은 메커니즘의 3세대 진화" >}}
   {{< card link="ai-weaponized-supply-chain" title="계열 B: AI가 무기화된 공급망" subtitle="Amazon Q 와이퍼, s1ngularity(Nx), hackerbot-claw·LiteLLM — 프롬프트가 페이로드가 되다" >}}
-  {{< card link="ai-orchestrated-attack" title="계열 C: AI가 공격을 수행" subtitle="GTG-1002, 멕시코 정부 침해 — 작업 분해로 가드레일을 우회한 자율 공격" >}}
+  {{< card link="ai-orchestrated-attack" title="계열 C: AI가 공격을 수행" subtitle="GTG-1002, 멕시코 정부 침해, ARTEX 한국 금융권 사건 — 우회에서 침투 전용 도구로" >}}
   {{< card link="agent-overreach" title="계열 D: 과도한 권한과 경계 붕괴" subtitle="Replit DB 삭제, OpenClaw, Cursor 허용목록 우회, Vertex AI Double Agent" >}}
 {{< /cards >}}
 
@@ -68,6 +68,7 @@ flowchart LR
 | 2026-03 | [Vertex AI Double Agent](agent-overreach/) | 기본 서비스 계정 과대 권한 → 자격증명 추출 | ○ (연구자) | LLM06, ASI03 |
 | 2026-03 | [hackerbot-claw → LiteLLM](ai-weaponized-supply-chain/) | CI 토큰 탈취 → 3시간 동안 약 4.7만 건 백도어 배포 | ○ | LLM03, ASI04 |
 | 2026-04 | [GrafanaGhost](zero-click-exfiltration/) | 로그에 심은 인젝션 + 프로토콜 상대 URL로 검증 우회 | ○ (연구자) | LLM01, LLM05 |
+| 2026-09~10 | [ARTEX 한국 금융권 침해](ai-orchestrated-attack/) | 침투 전용 오픈소스 에이전트 + 복수 LLM, 우회 불필요 | ○ | LLM06 |
 | ~2026-01 | [Cursor 허용목록 우회 (CVE-2026-22708)](agent-overreach/) | 셸 빌트인으로 환경변수 오염 → 승인된 명령이 페이로드 실행 | ○ (연구자) | LLM01, LLM05 |
 
 {{< callout type="warning" >}}
@@ -76,7 +77,7 @@ flowchart LR
 
 ## 사례에서 반복되는 세 가지 결함
 
-13건을 관통하는 원인은 사실상 세 개뿐입니다.
+14건을 관통하는 원인은 사실상 세 개뿐입니다.
 
 1. **지시와 데이터의 미분리** — 계열 A 전체, 계열 C의 우회 기법. → [프롬프트 인젝션](../attacks/prompt-injection/), [입력 가드레일](../guardrails/input-guardrails/)
 2. **과도한 권한(Excessive Agency)** — 계열 B의 빌드 토큰, 계열 D 전체. 공격자가 없어도 사고가 납니다(Replit, OpenClaw). → [거버넌스](../governance/owasp-llm-top10/), [실행 레일](../guardrails/frameworks/)

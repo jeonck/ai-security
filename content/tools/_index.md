@@ -19,6 +19,7 @@ sidebar:
 {{< cards >}}
   {{< card link="adversarial-ml-tools" title="적대적 ML 도구" subtitle="ART, Foolbox, CleverHans, TextAttack — 전통적인 적대적 머신러닝 공격/방어 라이브러리" icon="cube" >}}
   {{< card link="llm-redteam-tools" title="LLM 레드팀 도구" subtitle="PyRIT, Garak, promptfoo, Giskard, Purple Llama — LLM·에이전트 레드티밍 및 평가 도구" icon="shield-exclamation" >}}
+  {{< card link="artex" title="AI 에이전트 모의해킹 도구: ARTEX" subtitle="이중 그래프·플래너/워커 구조의 자율 침투 테스트 도구 — 방어자 활용과 2026년 한국 금융권 사건에서의 악용" icon="terminal" >}}
   {{< card link="standards-references" title="표준 및 참고 문서" subtitle="OWASP LLM Top 10, MITRE ATLAS, NIST AI RMF, EU AI Act 등 공식 표준 원문" icon="document-text" >}}
 {{< /cards >}}
 
